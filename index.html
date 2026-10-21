@@ -1,76 +1,385 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Nguyen Thi Yen</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vu Sy Hieu Nghia | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
 body{
-    font-family: Arial, sans-serif;
-    margin:0;
-    background:#f5f7fa;
+background:#f4f7fb;
+color:#1e293b;
+line-height:1.7;
 }
 
-header{
-    background:#0f172a;
-    color:white;
-    text-align:center;
-    padding:80px 20px;
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:#0f172a;
+padding:15px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
 }
 
-section{
-    max-width:900px;
-    margin:auto;
-    padding:40px;
+nav h2{
+color:white;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+.hero{
+background:linear-gradient(135deg,#0f172a,#1e3a8a);
+color:white;
+padding:140px 10% 100px;
+text-align:center;
+}
+
+.hero h1{
+font-size:56px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:20px;
+opacity:.9;
+}
+
+.section{
+max-width:1200px;
+margin:auto;
+padding:80px 20px;
+}
+
+.section-title{
+font-size:36px;
+margin-bottom:30px;
+color:#0f172a;
 }
 
 .card{
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    margin-bottom:20px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+background:white;
+padding:25px;
+margin-bottom:25px;
+border-radius:16px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
+
+.card h3{
+margin-bottom:10px;
+color:#1e3a8a;
+}
+
+.badge{
+display:inline-block;
+padding:6px 12px;
+background:#dbeafe;
+color:#1d4ed8;
+border-radius:20px;
+margin:5px;
+font-size:14px;
+}
+
+.timeline{
+border-left:4px solid #2563eb;
+padding-left:20px;
+}
+
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:30px;
+}
+
+ul{
+padding-left:20px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:40px;
+}
+
+.section-title{
+font-size:28px;
+}
+
+nav{
+padding:15px 20px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
+<nav>
+<h2>Vu Sy Hieu Nghia</h2>
+
+<div>
+<a href="#about">About</a>
+<a href="#awards">Awards</a>
+<a href="#research">Research</a>
+<a href="#robotics">Robotics</a>
+<a href="#activities">Activities</a>
+</div>
+</nav>
+
+<section class="hero">
+
 <h1>Nguyen Thi Yen</h1>
-<p>Aspiring Computer Scientist | Robotics Leader</p>
-</header>
 
-<section>
-
-<div class="card">
-<h2>About Me</h2>
 <p>
-Student at Chu Van An High School for the Gifted,
-passionate about Computer Science, Robotics,
-and AI.
+Aspiring Computer Scientist • Robotics Leader • Competitive Programmer
 </p>
-</div>
 
-<div class="card">
-<h2>Achievements</h2>
-<ul>
-<li>Third Prize - City Informatics Competition</li>
-<li>Vice President - RIAN Robotics Club</li>
-<li>FTC Robotics Participant</li>
-</ul>
-</div>
+<br>
 
-<div class="card">
-<h2>Leadership</h2>
 <p>
-Vice President &
-Head of Logistics and Finance,
-Robots in a Nutshell (RIAN).
+Chu Van An High School for the Gifted
 </p>
+
+</section>
+
+<section id="about" class="section">
+
+<h2 class="section-title">About Me</h2>
+
+<div class="card">
+
+<p>
+I am a Grade 12 student in the Specialized Informatics Program at Chu Van An High School for the Gifted. With strong interests in Computer Science, Artificial Intelligence, Robotics, and Education, I aim to develop intelligent technologies that create meaningful impact in society.
+</p>
+
+<br>
+
+<p>
+My academic journey has been shaped by years of studying mathematics, programming, research, and participating in STEM competitions. Through robotics leadership, AI projects, and scientific research, I have developed both technical expertise and leadership capabilities.
+</p>
+
 </div>
 
 </section>
+
+<section id="awards" class="section">
+
+<h2 class="section-title">Honors & Awards</h2>
+
+<div class="card">
+<h3>🥇 Gold Medal - AI JAM US 2026</h3>
+<p>
+Developed an AI-enabled healthcare ecosystem for home environments integrating intelligent monitoring and healthcare management.
+</p>
+</div>
+
+<div class="card">
+<h3>🥉 Third Prize - Science & Engineering Competition</h3>
+<p>
+Research on AI-powered website classification and risk assessment for child online safety.
+</p>
+</div>
+
+<div class="card">
+<h3>💻 Informatics Achievements</h3>
+
+<ul>
+<li>First Prize - Cluster Informatics Competition (2024)</li>
+<li>Consolation Prize - National Youth Informatics Contest (2024)</li>
+<li>Third Prize - City Informatics Competition (2025)</li>
+<li>Consolation Prize - City Informatics Competition (2026)</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>📐 Mathematics Achievements</h3>
+
+<ul>
+<li>Bronze Medal - ITMC International Round</li>
+<li>Silver Award - TIMO</li>
+<li>Silver Medal - VIOEDU</li>
+<li>Provincial Mathematics Awards</li>
+</ul>
+
+</div>
+
+</section>
+
+<section id="research" class="section">
+
+<h2 class="section-title">Research & Projects</h2>
+
+<div class="card">
+
+<h3>Hotel Booking Cancellation Prediction</h3>
+
+<p>
+Applied Machine Learning techniques including Random Forest, XGBoost, and Artificial Neural Networks to predict hotel booking cancellations and improve revenue management strategies.
+</p>
+
+<br>
+
+<span class="badge">Machine Learning</span>
+<span class="badge">XGBoost</span>
+<span class="badge">Random Forest</span>
+<span class="badge">Data Analysis</span>
+<span class="badge">Python</span>
+
+</div>
+
+</section>
+
+<section id="robotics" class="section">
+
+<h2 class="section-title">Robotics & Leadership</h2>
+
+<div class="card">
+
+<h3>Vice President & Head of Logistics and Finance</h3>
+
+<p>
+Robots in a Nutshell (RIAN) | 2025-2026
+</p>
+
+<br>
+
+<ul>
+<li>Led strategic planning and club operations.</li>
+<li>Managed budgeting and resource allocation.</li>
+<li>Organized STEM events and robotics competitions.</li>
+<li>Directed a logistics team for major club activities.</li>
+<li>Developed leadership, project management, and communication skills.</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>FIRST Tech Challenge (FTC)</h3>
+
+<ul>
+
+<li>
+FTC Mock Competition – Driver
+</li>
+
+<li>
+FTC 2025-2026 – Business Team Member & Driver
+</li>
+
+<li>
+FTC 2026-2027 – Mechanical & Electronics Programming Team Member
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section id="activities" class="section">
+
+<h2 class="section-title">Extracurricular Activities</h2>
+
+<div class="timeline">
+
+<div class="card">
+
+<h3>⚽ Team Captain – School Football Champion</h3>
+
+<p>
+Led the class football team to win the School Championship through strategic planning, team coordination, and leadership.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>⚽ Chu Van An Football Club</h3>
+
+<p>
+Participant in the Gifted Students Cup competition.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🏀 Basketball Tournament Semi-finalist</h3>
+
+<p>
+Core team member and contributor to team strategy and performance.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🤝 Volunteer Activities</h3>
+
+<ul>
+<li>TEAMWORK CVA Program</li>
+<li>Tiep Suc Mua Thi</li>
+<li>Drowning Prevention Campaign</li>
+<li>Moonlight Station for Children</li>
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">Skills</h2>
+
+<div class="card">
+
+<span class="badge">Python</span>
+<span class="badge">C++</span>
+<span class="badge">Java</span>
+<span class="badge">AI</span>
+<span class="badge">Machine Learning</span>
+<span class="badge">Robotics</span>
+<span class="badge">Leadership</span>
+<span class="badge">Project Management</span>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>Nguyen Thi Yen</h3>
+
+<p>
+Aspiring Computer Scientist | Robotics Leader | Research Enthusiast
+</p>
+
+</footer>
 
 </body>
 </html>
