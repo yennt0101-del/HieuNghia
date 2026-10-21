@@ -1,478 +1,3769 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Vu Sy Hieu Nghia | Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Nguyen Viet Nhat Minh - Engineering Portfolio</title><style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
-body{
-background:#f4f7fb;
-color:#1e293b;
-line-height:1.7;
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background: #0a0a0a;
+color: #ffffff;
+overflow-x: hidden;
+line-height: 1.6;
 }
 
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:#0f172a;
-padding:15px 50px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:1000;
+/* Animated Background Effects */
+.animated-bg {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 0;
+pointer-events: none;
+overflow: hidden;
 }
 
-nav h2{
-color:white;
+.bg-gradient-orb {
+position: absolute;
+border-radius: 50%;
+filter: blur(100px);
+opacity: 0.15;
+animation: floatOrb 20s ease-in-out infinite;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
+.bg-orb-1 {
+width: 500px;
+height: 500px;
+background: radial-gradient(circle, rgba(0, 255, 255, 0.6), transparent);
+top: -10%;
+left: -10%;
+animation-delay: 0s;
 }
 
-.hero{
-background:linear-gradient(135deg,#0f172a,#1e3a8a);
-color:white;
-padding:140px 10% 100px;
-text-align:center;
+.bg-orb-2 {
+width: 600px;
+height: 600px;
+background: radial-gradient(circle, rgba(0, 128, 255, 0.5), transparent);
+bottom: -15%;
+right: -10%;
+animation-delay: -7s;
 }
 
-.hero h1{
-font-size:56px;
-margin-bottom:10px;
+.bg-orb-3 {
+width: 450px;
+height: 450px;
+background: radial-gradient(circle, rgba(128, 0, 255, 0.4), transparent);
+top: 50%;
+left: 50%;
+animation-delay: -14s;
 }
 
-.hero p{
-font-size:20px;
-opacity:.9;
+/* Floating geometric shapes */
+.bg-shape {
+position: absolute;
+opacity: 0.05;
+animation: shapeFloat 30s linear infinite;
 }
 
-.section{
-max-width:1200px;
-margin:auto;
-padding:80px 20px;
+.bg-shape-1 {
+width: 100px;
+height: 100px;
+border: 3px solid #00ffff;
+top: 20%;
+left: 10%;
+animation-delay: 0s;
+transform: rotate(45deg);
 }
 
-.section-title{
-font-size:36px;
-margin-bottom:30px;
-color:#0f172a;
+.bg-shape-2 {
+width: 150px;
+height: 150px;
+border: 3px solid #0080ff;
+border-radius: 50%;
+top: 60%;
+right: 15%;
+animation-delay: -10s;
 }
 
-.card{
-background:white;
-padding:25px;
-margin-bottom:25px;
-border-radius:16px;
-box-shadow:0 5px 20px rgba(0,0,0,.08);
+.bg-shape-3 {
+width: 80px;
+height: 80px;
+border: 3px solid #8000ff;
+bottom: 20%;
+left: 70%;
+animation-delay: -20s;
+clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
 }
 
-.card h3{
-margin-bottom:10px;
-color:#1e3a8a;
+@keyframes shapeFloat {
+
+0%,
+100% {
+transform: translate(0, 0) rotate(0deg);
 }
 
-.badge{
-display:inline-block;
-padding:6px 12px;
-background:#dbeafe;
-color:#1d4ed8;
-border-radius:20px;
-margin:5px;
-font-size:14px;
+25% {
+transform: translate(50px, -80px) rotate(90deg);
 }
 
-.timeline{
-border-left:4px solid #2563eb;
-padding-left:20px;
+50% {
+transform: translate(-30px, -150px) rotate(180deg);
 }
 
-footer{
-background:#0f172a;
-color:white;
-text-align:center;
-padding:30px;
+75% {
+transform: translate(80px, -80px) rotate(270deg);
+}
 }
 
-ul{
-padding-left:20px;
+/* Animated grid lines */
+.bg-grid {
+position: absolute;
+width: 100%;
+height: 100%;
+background-image:
+linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+background-size: 50px 50px;
+animation: gridMove 20s linear infinite;
 }
 
-@media(max-width:768px){
-
-.hero h1{
-font-size:40px;
+@keyframes gridMove {
+0% {
+transform: translate(0, 0);
 }
 
-.section-title{
-font-size:28px;
+100% {
+transform: translate(50px, 50px);
+}
 }
 
-nav{
-padding:15px 20px;
+/* Ensure all sections are above background */
+section,
+nav,
+footer {
+position: relative;
+z-index: 1;
 }
 
+/* Navigation - Enhanced */
+nav {
+position: fixed;
+top: 0;
+width: 100%;
+background: rgba(10, 10, 10, 0.85);
+backdrop-filter: blur(20px);
+z-index: 1000;
+padding: 0;
+border-bottom: 1px solid rgba(0, 255, 255, 0.15);
+transition: all 0.3s ease;
 }
 
-</style>
-</head>
-
-<body>
-
-<nav>
-<h2>Vu Sy Hieu Nghia</h2>
-
-<div>
-<a href="#about">About Me</a>
-<a href="#awards">Honors & Awards</a>
-<a href="#research">Research & Projects</a>
-<a href="#robotics">Robotics</a>
-<a href="#Leadership">Leadership</a>
-<a href="#activities">Extracurricular Activities </a>
-</div>
-</nav>
-
- <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="main-title">VU SY HIEU NGHIA</h1>
-            
-            <p class="subtitle">Engineering &bull; Applied Science &bull; Community Leadership</p>
-            
-            <p class="description">
-                Welcome! I'm Vu Sy Hieu Nghia, currently a specialized Informatics student at Chu Van An High School for Gifted Students. My academic background, community leadership, and research interest in sustainable innovation have shaped my aspiration to pursue Engineering. Discover my journey below.
-            </p>
-            
-            <a href="#" class="btn-explore">Explore My Profile</a>
-        </div>
-    </section>
-
-
- 
- <section id="about" class="section">
-<section class="about-section">
-    <div class="about-container">
-        
-        <!-- CỘT BÊN TRÁI: HÌNH ẢNH CÁ NHÂN -->
-        <div class="about-image-zone">
-            <div class="image-wrapper">
-                <!-- Thay link ảnh cá nhân của bạn vào src bên dưới -->
-                <img src="your-photo.jpg" alt="Vu Sy Hieu Nghia">
-            </div>
-        </div>
-
-        <!-- CỘT BÊN PHẢI: NỘI DUNG GIỚI THIỆU & THÔNG SỐ -->
-        <div class="about-content-zone">
-            <div class="about-text">
-                <p>
-I am a grade 12 student in the specialized Informatics Class at Chu Van An High School for the Gifted, with a GPA of 9.24 in grade 10 and  9.5 in the grade 11. I have achived an SAT score of 1530 and an IELTS score of …
-</p>
-
-<br>
-
-<p>
-My interested in technology has developed through years of studying mathematics, programming, and computational thinking, as well as participating in the FIRST Tech Challenge (FTC). From writing code and building robotic systems to collaborating on research projects, I gradually realized how technology can be used to solve real-world problems and create meaningful impact for society.
-</p>
-
-  <br>
-
-<p>
-Through these experiences, I became particularly interested in the intersection of Artificial Intelligence, Robotics, and Education. I am motivated by the potential of intelligent systems to improve learning, enhance productivity, and address complex challenges in modern life.
-</p>
-             <p>
-I view technology not only as a field of innovation but also as a tool for creating practical, human-centered, and sustainable solutions. My goal is to contribute to the development of technologies that combine technical excellence, creativity, and social responsibility. 
-</p>
-            </div>
-
-            <!-- LƯỚI THÔNG SỐ (STATS GRID) -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3 class="stat-number">9.24</h3>
-                    <p class="stat-label">Grade 10 GPA</p>
-                </div>
-                
-                <div class="stat-card">
-                    <h3 class="stat-number">1530</h3>
-                    <p class="stat-label">SAT Score</p>
-                </div>
-                
-                <div class="stat-card">
-                    <h3 class="stat-number">7.5</h3>
-                    <p class="stat-label">IELTS Score</p>
-                </div>
-                
-                <div class="stat-card">
-                    <h3 class="stat-number">9.50</h3>
-                    <p class="stat-label">Grade 11 GPA</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-<h2 class="section-title">About Me</h2>
-
-
-<section id="awards" class="section">
-
-<h2 class="section-title">Honors & Awards</h2>
-
-<div class="card">
-<h3>🥇 Gold Medal - AI JAM US 2026</h3>
-<p>
-Developed an AI-enabled healthcare ecosystem for home environments integrating intelligent monitoring and healthcare management.
-</p>
-</div>
-
-<div class="card">
-<h3>🥉 Third Prize - Science & Engineering Competition</h3>
-<p>
-Research on AI-powered website classification and risk assessment for child online safety.
-</p>
-</div>
-
-<div class="card">
-<h3>💻 Informatics Achievements</h3>
-
-<ul>
-<li>First Prize - Cluster Informatics Competition (2024)</li>
-<li>Consolation Prize - National Youth Informatics Contest (2024)</li>
-<li>Third Prize - City Informatics Competition (2025)</li>
-<li>Consolation Prize - City Informatics Competition (2026)</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h3>📐 Mathematics Achievements</h3>
-
-<ul>
-<li>Bronze Medal - ITMC International Round</li>
-<li>Silver Award - TIMO</li>
-<li>Silver Medal - VIOEDU</li>
-<li>Provincial Mathematics Awards</li>
-</ul>
-
-</div>
-
-</section>
-
-<section id="research" class="section">
-
-<h2 class="section-title">Research & Projects</h2>
-
-<div class="card">
-
-<h3>Hotel Booking Cancellation Prediction</h3>
-
-<p>
-Applied Machine Learning techniques including Random Forest, XGBoost, and Artificial Neural Networks to predict hotel booking cancellations and improve revenue management strategies.
-</p>
-
-<br>
-
-<span class="badge">Machine Learning</span>
-<span class="badge">XGBoost</span>
-<span class="badge">Random Forest</span>
-<span class="badge">Data Analysis</span>
-<span class="badge">Python</span>
-
-</div>
-
-</section>
-
-<section id="robotics" class="section">
-
-<h2 class="section-title">Robotics & Leadership</h2>
-
-<div class="card">
-
-<h3>Vice President & Head of Logistics and Finance</h3>
-
-<p>
-Robots in a Nutshell (RIAN) | 2025-2026
-</p>
-
-<br>
-
-<ul>
-<li>Led strategic planning and club operations.</li>
-<li>Managed budgeting and resource allocation.</li>
-<li>Organized STEM events and robotics competitions.</li>
-<li>Directed a logistics team for major club activities.</li>
-<li>Developed leadership, project management, and communication skills.</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h3>FIRST Tech Challenge (FTC)</h3>
-
-<ul>
-
-<li>
-FTC Mock Competition – Driver
-</li>
-
-<li>
-FTC 2025-2026 – Business Team Member & Driver
-</li>
-
-<li>
-FTC 2026-2027 – Mechanical & Electronics Programming Team Member
-</li>
-
-</ul>
-
-</div>
-
-</section>
-
- <section id="leadership" class="section">
-
-<h2 class="section-title">Leadership</h2>
-
-<div class="card">
-
-<h3>Vice President & Head of Logistics and Finance</h3>
-
-<p>
-Robots in a Nutshell (RIAN) | 2025-2026
-</p>
-
-<br>
-
-<ul>
-<li>Led strategic planning and club operations.</li>
-<li>Managed budgeting and resource allocation.</li>
-<li>Organized STEM events and robotics competitions.</li>
-<li>Directed a logistics team for major club activities.</li>
-<li>Developed leadership, project management, and communication skills.</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h3>FIRST Tech Challenge (FTC)</h3>
-
-<ul>
-
-<li>
-FTC Mock Competition – Driver
-</li>
-
-<li>
-FTC 2025-2026 – Business Team Member & Driver
-</li>
-
-<li>
-FTC 2026-2027 – Mechanical & Electronics Programming Team Member
-</li>
-
-</ul>
-
-</div>
-
-</section>
-
-<section id="activities" class="section">
-
-<h2 class="section-title">Extracurricular Activities</h2>
-
-<div class="timeline">
-
-<div class="card">
-
-<h3>⚽ Team Captain – School Football Champion</h3>
-
-<p>
-Led the class football team to win the School Championship through strategic planning, team coordination, and leadership.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>⚽ Chu Van An Football Club</h3>
-
-<p>
-Participant in the Gifted Students Cup competition.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>🏀 Basketball Tournament Semi-finalist</h3>
-
-<p>
-Core team member and contributor to team strategy and performance.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>🤝 Volunteer Activities</h3>
-
-<ul>
-<li>TEAMWORK CVA Program</li>
-<li>Tiep Suc Mua Thi</li>
-<li>Drowning Prevention Campaign</li>
-<li>Moonlight Station for Children</li>
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2 class="section-title">Skills</h2>
-
-<div class="card">
-
-<span class="badge">Python</span>
-<span class="badge">C++</span>
-<span class="badge">Java</span>
-<span class="badge">AI</span>
-<span class="badge">Machine Learning</span>
-<span class="badge">Robotics</span>
-<span class="badge">Leadership</span>
-<span class="badge">Project Management</span>
-
-</div>
-
-</section>
-
-<footer>
-
-<h3>Vu Sy Hieu Nghia</h3>
-
-<p>
-Aspiring Computer Scientist | Robotics Leader | Research Enthusiast
-</p>
-
-</footer>
-
-</body>
-</html>
+nav.scrolled {
+padding: 0;
+background: rgba(10, 10, 10, 0.95);
+box-shadow: 0 5px 30px rgba(0, 255, 255, 0.1);
+}
+
+.nav-container {
+max-width: 100%;
+width: 100%;
+margin: 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1.2rem 3rem;
+position: relative;
+}
+
+/* Avatar in Navigation */
+.nav-avatar {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+overflow: hidden;
+border: 1px solid rgba(0, 255, 255, 0.5);
+box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+transition: all 0.4s ease;
+cursor: pointer;
+flex-shrink: 0;
+margin-right: 1.5rem;
+animation: avatarGlow 3s ease-in-out infinite;
+}
+
+.nav-avatar:hover {
+transform: scale(1.1) rotate(5deg);
+border-color: rgba(0, 255, 255, 0.9);
+box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+}
+
+.nav-avatar img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+}
+
+@keyframes avatarGlow {
+
+0%,
+100% {
+box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+50% {
+box-shadow: 0 0 30px rgba(0, 255, 255, 0.7),
+0 0 40px rgba(0, 128, 255, 0.4);
+}
+}
+
+/* Mobile Avatar */
+@media (max-width: 768px) {
+.nav-avatar {
+width: 40px;
+height: 40px;
+margin-right: 1rem;
+border-width: 2px;
+}
+}
+
+.logo {
+font-size: 1.6rem;
+font-weight: 800;
+background: linear-gradient(135deg, #00ffff, #0080ff, #00ffff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+background-size: 200% 200%;
+animation: logoGradient 3s ease infinite;
+position: relative;
+letter-spacing: 2px;
+margin-right: auto;
+}
+
+@keyframes logoGradient {
+
+0%,
+100% {
+background-position: 0% 50%;
+}
+
+50% {
+background-position: 100% 50%;
+}
+}
+
+.nav-links {
+display: flex;
+list-style: none;
+gap: 2rem;
+align-items: center;
+margin-left: auto;
+padding-right: 0;
+}
+
+.nav-links a {
+color: #ffffff;
+text-decoration: none;
+transition: all 0.3s ease;
+position: relative;
+font-weight: 500;
+padding: 0.5rem 0;
+font-size: 0.95rem;
+letter-spacing: 0.5px;
+}
+
+.nav-links a::before {
+content: '';
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 0;
+height: 2px;
+background: linear-gradient(90deg, #00ffff, #0080ff);
+transition: width 0.3s ease;
+border-radius: 2px;
+}
+
+.nav-links a:hover {
+color: #00ffff;
+}
+
+.nav-links a:hover::before {
+width: 100%;
+}
+
+.nav-links a::after {
+display: none;
+}
+
+/* Dropdown Menu Styles */
+.nav-item {
+position: relative;
+}
+
+.dropdown-menu {
+position: absolute;
+top: 100%;
+left: 50%;
+transform: translateX(-50%) translateY(10px);
+background: rgba(10, 10, 10, 0.98);
+backdrop-filter: blur(20px);
+border: 1px solid rgba(0, 255, 255, 0.3);
+border-radius: 12px;
+padding: 0.8rem 0;
+min-width: 260px;
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+box-shadow: 0 10px 40px rgba(0, 255, 255, 0.15);
+z-index: 1000;
+pointer-events: none;
+}
+
+.nav-item:hover .dropdown-menu {
+opacity: 1;
+visibility: visible;
+transform: translateX(-50%) translateY(0);
+pointer-events: auto;
+}
+
+.dropdown-menu::before {
+content: '';
+position: absolute;
+top: -6px;
+left: 50%;
+transform: translateX(-50%);
+width: 12px;
+height: 12px;
+background: rgba(10, 10, 10, 0.98);
+border-left: 1px solid rgba(0, 255, 255, 0.3);
+border-top: 1px solid rgba(0, 255, 255, 0.3);
+transform: translateX(-50%) rotate(45deg);
+}
+
+.dropdown-item {
+display: block;
+padding: 0.75rem 1.5rem;
+color: #cccccc;
+text-decoration: none;
+transition: all 0.25s ease;
+font-size: 0.9rem;
+font-weight: 500;
+border-left: 3px solid transparent;
+position: relative;
+overflow: hidden;
+}
+
+.dropdown-item::before {
+content: '';
+position: absolute;
+left: 0;
+top: 0;
+height: 100%;
+width: 0;
+background: linear-gradient(90deg, rgba(0, 255, 255, 0.15), transparent);
+transition: width 0.3s ease;
+z-index: -1;
+}
+
+.dropdown-item:hover {
+color: #00ffff;
+border-left-color: #00ffff;
+padding-left: 2rem;
+background: rgba(0, 255, 255, 0.05);
+}
+
+.dropdown-item:hover::before {
+width: 100%;
+}
+
+.dropdown-item-icon {
+display: inline-block;
+width: 20px;
+margin-right: 8px;
+color: #0080ff;
+transition: transform 0.3s ease;
+}
+
+.dropdown-item:hover .dropdown-item-icon {
+transform: translateX(3px);
+color: #00ffff;
+}
+
+/* Dropdown arrow indicator */
+.nav-links>li>a[data-dropdown]::after {
+content: '▾';
+margin-left: 5px;
+font-size: 0.8rem;
+transition: transform 0.3s ease;
+}
+
+.nav-item:hover>a[data-dropdown]::after {
+transform: rotate(180deg);
+}
+
+/* Animated particles in background */
+.nav-particle {
+position: absolute;
+width: 4px;
+height: 4px;
+background: rgba(0, 255, 255, 0.4);
+border-radius: 50%;
+pointer-events: none;
+animation: navParticle 4s linear infinite;
+}
+
+@keyframes navParticle {
+0% {
+transform: translateY(0) translateX(0);
+opacity: 0;
+}
+
+10% {
+opacity: 1;
+}
+
+90% {
+opacity: 1;
+}
+
+100% {
+transform: translateY(-100px) translateX(50px);
+opacity: 0;
+}
+}
+
+/* Active navigation link */
+.nav-links a.active {
+color: #00ffff;
+text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+.nav-links a.active::before {
+width: 100%;
+background: linear-gradient(90deg, #00ffff, #0080ff);
+box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+/* Hero Section - Enhanced */
+.hero {
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+position: relative;
+background: #0a0a0a;
+overflow: hidden;
+}
+
+/* Animated gradient waves */
+.hero::before {
+content: '';
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+radial-gradient(circle at 80% 80%, rgba(0, 128, 255, 0.15) 0%, transparent 50%),
+radial-gradient(circle at 40% 20%, rgba(128, 0, 255, 0.1) 0%, transparent 50%);
+animation: wavesMove 15s ease-in-out infinite;
+}
+
+@keyframes wavesMove {
+
+0%,
+100% {
+transform: rotate(0deg) scale(1);
+}
+
+50% {
+transform: rotate(180deg) scale(1.1);
+}
+}
+
+/* Floating orbs */
+.hero-orb {
+position: absolute;
+border-radius: 50%;
+filter: blur(80px);
+opacity: 0.3;
+animation: floatOrb 10s ease-in-out infinite;
+}
+
+.hero-orb-1 {
+width: 400px;
+height: 400px;
+background: radial-gradient(circle, rgba(0, 255, 255, 0.4), transparent);
+top: 10%;
+left: 5%;
+animation-delay: 0s;
+}
+
+.hero-orb-2 {
+width: 500px;
+height: 500px;
+background: radial-gradient(circle, rgba(0, 128, 255, 0.4), transparent);
+bottom: 5%;
+right: 5%;
+animation-delay: -5s;
+}
+
+.hero-orb-3 {
+width: 350px;
+height: 350px;
+background: radial-gradient(circle, rgba(128, 0, 255, 0.3), transparent);
+top: 40%;
+right: 20%;
+animation-delay: -2.5s;
+}
+
+@keyframes floatOrb {
+
+0%,
+100% {
+transform: translate(0, 0) scale(1);
+}
+
+25% {
+transform: translate(50px, -50px) scale(1.15);
+}
+
+50% {
+transform: translate(-30px, 30px) scale(0.9);
+}
+
+75% {
+transform: translate(40px, 40px) scale(1.05);
+}
+}
+
+/* Animated particles system */
+.hero-particle-system {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+overflow: hidden;
+}
+
+.hero-particle {
+position: absolute;
+background: rgba(0, 255, 255, 0.6);
+border-radius: 50%;
+pointer-events: none;
+animation: particleFloat 8s linear infinite;
+}
+
+@keyframes particleFloat {
+0% {
+transform: translateY(100vh) translateX(0) scale(0);
+opacity: 0;
+}
+
+10% {
+opacity: 1;
+transform: translateY(90vh) translateX(10px) scale(1);
+}
+
+90% {
+opacity: 1;
+}
+
+100% {
+transform: translateY(-20vh) translateX(100px) scale(0);
+opacity: 0;
+}
+}
+
+/* Glow dots background */
+.hero-dots {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+}
+
+.hero-dot {
+position: absolute;
+width: 3px;
+height: 3px;
+background: rgba(0, 255, 255, 0.4);
+border-radius: 50%;
+box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+animation: dotPulse 3s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+
+0%,
+100% {
+opacity: 0.3;
+transform: scale(1);
+}
+
+50% {
+opacity: 1;
+transform: scale(1.5);
+}
+}
+
+.hero-content {
+max-width: 900px;
+padding: 2rem;
+z-index: 2;
+position: relative;
+}
+
+.hero h1 {
+font-size: 4.5rem;
+margin-bottom: 1.5rem;
+background: linear-gradient(135deg, #00ffff 0%, #0080ff 50%, #8000ff 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+animation: titleGlow 3s ease-in-out infinite;
+font-weight: 900;
+letter-spacing: 2px;
+line-height: 1.2;
+position: relative;
+}
+
+@keyframes titleGlow {
+
+0%,
+100% {
+filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.4));
+transform: translateY(0);
+}
+
+50% {
+filter: drop-shadow(0 0 40px rgba(0, 128, 255, 0.6));
+transform: translateY(-5px);
+}
+}
+
+.hero-subtitle {
+font-size: 1.6rem;
+margin-bottom: 2rem;
+color: #00ffff;
+font-weight: 300;
+letter-spacing: 3px;
+opacity: 0;
+animation: fadeInUp 1s ease forwards 0.5s;
+}
+
+.hero-description {
+font-size: 1.15rem;
+margin-bottom: 2.5rem;
+color: #cccccc;
+max-width: 700px;
+margin-left: auto;
+margin-right: auto;
+line-height: 1.8;
+opacity: 0;
+animation: fadeInUp 1s ease forwards 1s;
+}
+
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.cta-button {
+display: inline-block;
+padding: 1.2rem 2.5rem;
+background: linear-gradient(135deg, #00ffff, #0080ff);
+border: none;
+border-radius: 50px;
+color: #ffffff;
+text-decoration: none;
+font-size: 1.1rem;
+font-weight: 700;
+transition: all 0.4s ease;
+position: relative;
+overflow: hidden;
+box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+opacity: 0;
+animation: fadeInUp 1s ease forwards 1.5s;
+letter-spacing: 1px;
+}
+
+.cta-button::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+left: 100%;
+}
+
+.cta-button:hover {
+transform: translateY(-3px) scale(1.05);
+box-shadow: 0 15px 40px rgba(0, 255, 255, 0.5);
+}
+
+.cta-button:active {
+transform: translateY(-1px) scale(1.02);
+}
+
+/* Floating elements */
+.hero-float {
+position: absolute;
+font-size: 2rem;
+color: rgba(0, 255, 255, 0.3);
+animation: heroFloat 6s ease-in-out infinite;
+pointer-events: none;
+}
+
+@keyframes heroFloat {
+
+0%,
+100% {
+transform: translateY(0) rotate(0deg);
+}
+
+50% {
+transform: translateY(-20px) rotate(5deg);
+}
+}
+
+/* Section Styles */
+.section {
+padding: 5rem 0;
+max-width: 1200px;
+margin: 0 auto;
+padding-left: 2rem;
+padding-right: 2rem;
+}
+
+.section h2 {
+font-size: 2.5rem;
+margin-bottom: 3rem;
+text-align: center;
+color: #00ffff;
+position: relative;
+}
+
+.section h2::after {
+content: '';
+position: absolute;
+bottom: -10px;
+left: 50%;
+transform: translateX(-50%);
+width: 100px;
+height: 3px;
+background: linear-gradient(90deg, #00ffff, #0080ff);
+}
+
+/* About Section */
+.about-content {
+display: grid;
+grid-template-columns: 1fr 2fr;
+gap: 3rem;
+align-items: center;
+}
+
+.about-image {
+width: 100%;
+height: 400px;
+background: linear-gradient(45deg, #1a1a2e, #16213e);
+border-radius: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.2rem;
+color: #00ffff;
+border: 2px solid rgba(0, 255, 255, 0.3);
+position: relative;
+overflow: hidden;
+}
+
+.about-text {
+font-size: 1.1rem;
+color: #cccccc;
+}
+
+.about-stats {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 1rem;
+margin-top: 2rem;
+}
+
+.stat-item {
+background: rgba(0, 255, 255, 0.1);
+padding: 1rem;
+border-radius: 10px;
+text-align: center;
+border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.stat-number {
+font-size: 2rem;
+font-weight: bold;
+color: #00ffff;
+}
+
+/* Awards Section */
+.awards-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+margin-top: 2rem;
+}
+
+.award-card {
+background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 128, 255, 0.1));
+padding: 2rem;
+border-radius: 15px;
+border: 1px solid rgba(0, 255, 255, 0.3);
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+}
+
+.award-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 35px rgba(0, 255, 255, 0.2);
+}
+
+.award-card h3 {
+color: #00ffff;
+margin-bottom: 1rem;
+font-size: 1.3rem;
+}
+
+.award-year {
+color: #0080ff;
+font-weight: bold;
+margin-bottom: 0.5rem;
+}
+
+.award-image {
+width: 100%;
+height: 150px;
+background: rgba(0, 255, 255, 0.1);
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 1rem;
+color: #00ffff;
+font-size: 0.9rem;
+}
+
+/* Leadership Section */
+.leadership-content {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 2rem;
+}
+
+.leadership-card {
+background: linear-gradient(135deg, rgba(128, 0, 255, 0.1), rgba(0, 128, 255, 0.1));
+padding: 2rem;
+border-radius: 15px;
+border: 1px solid rgba(128, 0, 255, 0.3);
+transition: all 0.3s ease;
+display: flex;
+flex-direction: column;
+min-height: 420px;
+cursor: pointer;
+}
+
+.leadership-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 15px 35px rgba(128, 0, 255, 0.2);
+}
+
+.leadership-card h3 {
+color: #8000ff;
+margin-bottom: 1rem;
+flex-grow: 0;
+}
+
+.leadership-card>p {
+flex-grow: 1;
+margin-bottom: 1rem;
+}
+
+.leadership-card .award-year {
+flex-grow: 0;
+}
+
+.scroll-images {
+display: flex;
+gap: 1rem;
+margin-top: auto;
+overflow-x: auto;
+padding-bottom: 0.5rem;
+padding-top: 1rem;
+}
+
+.scroll-image {
+min-width: 100px;
+height: 80px;
+background: rgba(128, 0, 255, 0.2);
+border-radius: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #8000ff;
+font-size: 0.8rem;
+text-align: center;
+border: 1px solid rgba(128, 0, 255, 0.3);
+}
+
+/* NEW Leadership Section Styles */
+.leadership-new-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(550px, 1fr));
+gap: 3rem;
+margin-top: 3rem;
+}
+
+.leadership-new-card {
+background: linear-gradient(135deg, rgba(0, 255, 255, 0.08), rgba(0, 128, 255, 0.08));
+border-radius: 20px;
+overflow: hidden;
+border: 2px solid rgba(0, 255, 255, 0.3);
+transition: all 0.4s ease;
+cursor: pointer;
+position: relative;
+}
+
+.leadership-new-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), transparent);
+opacity: 0;
+transition: opacity 0.4s ease;
+pointer-events: none;
+}
+
+.leadership-new-card:hover {
+transform: translateY(-10px);
+box-shadow: 0 20px 50px rgba(0, 255, 255, 0.3);
+border-color: rgba(0, 255, 255, 0.6);
+}
+
+.leadership-new-card:hover::before {
+opacity: 1;
+}
+
+.leadership-new-images {
+display: flex;
+height: 280px;
+position: relative;
+overflow: hidden;
+}
+
+.leadership-img-container {
+flex: 1;
+overflow: hidden;
+position: relative;
+}
+
+.leadership-img-container img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.5s ease;
+}
+
+.leadership-new-card:hover .leadership-img-container img {
+transform: scale(1.1);
+}
+
+.leadership-new-content {
+padding: 2rem;
+position: relative;
+z-index: 1;
+}
+
+.leadership-new-content h3 {
+color: #00ffff;
+font-size: 1.5rem;
+margin-bottom: 1rem;
+font-weight: 700;
+line-height: 1.3;
+}
+
+.leadership-new-content p {
+color: #cccccc;
+line-height: 1.8;
+font-size: 1.05rem;
+margin-bottom: 1.5rem;
+}
+
+.leadership-badge {
+display: inline-block;
+padding: 0.5rem 1.2rem;
+background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(0, 128, 255, 0.2));
+border: 1px solid rgba(0, 255, 255, 0.4);
+border-radius: 20px;
+color: #00ffff;
+font-size: 0.9rem;
+font-weight: 600;
+}
+
+/* Responsive for new sections */
+@media (max-width: 768px) {
+.leadership-new-grid {
+grid-template-columns: 1fr;
+gap: 2rem;
+}
+
+.leadership-new-images {
+height: 200px;
+}
+
+.leadership-new-content {
+padding: 1.5rem;
+}
+
+.leadership-new-content h3 {
+font-size: 1.2rem;
+}
+
+.leadership-new-content p {
+font-size: 0.95rem;
+}
+}
+
+/* Research & Personal Product Section */
+.research-section {
+background: linear-gradient(135deg, rgba(0, 128, 255, 0.05), rgba(0, 255, 255, 0.05));
+padding: 5rem 0;
+position: relative;
+overflow: hidden;
+}
+
+.research-section::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="rgba(0,255,255,0.1)"/></svg>');
+opacity: 0.3;
+pointer-events: none;
+}
+
+.research-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+position: relative;
+z-index: 1;
+}
+
+.research-section h2 {
+font-size: 2.8rem;
+margin-bottom: 1rem;
+text-align: center;
+background: linear-gradient(135deg, #00ffff, #0080ff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+position: relative;
+font-weight: 900;
+letter-spacing: 1px;
+}
+
+.research-section h2::after {
+content: '';
+position: absolute;
+bottom: -15px;
+left: 50%;
+transform: translateX(-50%);
+width: 120px;
+height: 4px;
+background: linear-gradient(90deg, #00ffff, #0080ff);
+border-radius: 2px;
+}
+
+.research-subtitle {
+text-align: center;
+color: #999;
+font-size: 1.1rem;
+margin-bottom: 4rem;
+margin-top: 2rem;
+}
+
+.research-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+gap: 3rem;
+margin-top: 3rem;
+}
+
+.research-category {
+background: linear-gradient(135deg, rgba(10, 10, 20, 0.8), rgba(20, 20, 40, 0.8));
+border-radius: 20px;
+padding: 2.5rem;
+border: 2px solid rgba(0, 255, 255, 0.2);
+transition: all 0.4s ease;
+position: relative;
+overflow: hidden;
+}
+
+.research-category::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(0, 128, 255, 0.05));
+opacity: 0;
+transition: opacity 0.4s ease;
+}
+
+.research-category:hover {
+transform: translateY(-8px);
+box-shadow: 0 20px 50px rgba(0, 255, 255, 0.3);
+border-color: rgba(0, 255, 255, 0.6);
+}
+
+.research-category:hover::before {
+opacity: 1;
+}
+
+.category-header {
+display: flex;
+align-items: center;
+gap: 1rem;
+margin-bottom: 2rem;
+position: relative;
+z-index: 1;
+}
+
+.category-icon {
+width: 60px;
+height: 60px;
+background: linear-gradient(135deg, #00ffff, #0080ff);
+border-radius: 15px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.8rem;
+box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4);
+}
+
+.category-header h3 {
+font-size: 1.8rem;
+color: #00ffff;
+margin: 0;
+font-weight: 700;
+letter-spacing: 0.5px;
+}
+
+.research-items {
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+position: relative;
+z-index: 1;
+}
+
+.research-item {
+background: rgba(0, 255, 255, 0.05);
+padding: 0;
+border-radius: 15px;
+border-left: 4px solid #00ffff;
+transition: all 0.3s ease;
+cursor: pointer;
+position: relative;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+}
+
+.research-item::before {
+content: '';
+position: absolute;
+left: 0;
+top: 0;
+height: 100%;
+width: 0;
+background: linear-gradient(90deg, rgba(0, 255, 255, 0.15), transparent);
+transition: width 0.3s ease;
+z-index: 0;
+}
+
+.research-item:hover {
+background: rgba(0, 255, 255, 0.1);
+transform: translateY(-8px);
+box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3);
+}
+
+.research-item:hover::before {
+width: 100%;
+}
+
+.research-item-image {
+width: 100%;
+height: 220px;
+overflow: hidden;
+border-radius: 15px 15px 0 0;
+position: relative;
+}
+
+.research-item-image {
+width: 100%;
+height: 220px;
+overflow: hidden;
+border-radius: 15px 15px 0 0;
+position: relative;
+background: linear-gradient(90deg, #001a1a 25%, #003333 50%, #001a1a 75%);
+background-size: 200% 100%;
+animation: imageLoading 1.5s infinite;
+}
+
+@keyframes imageLoading {
+0% {
+background-position: 200% 0;
+}
+
+100% {
+background-position: -200% 0;
+}
+}
+
+.research-item-image.loaded {
+animation: none;
+background: transparent;
+}
+
+.research-item-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.5s ease;
+}
+
+.research-item:hover .research-item-image img {
+transform: scale(1.1);
+}
+
+.research-item-overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+pointer-events: none;
+}
+
+.research-item-content {
+padding: 1.8rem;
+position: relative;
+z-index: 1;
+}
+
+.research-item h4 {
+color: #ffffff;
+font-size: 1.3rem;
+margin-bottom: 1rem;
+font-weight: 600;
+line-height: 1.4;
+}
+
+.research-item p {
+color: #cccccc;
+line-height: 1.7;
+font-size: 1rem;
+}
+
+.research-meta {
+display: flex;
+gap: 1rem;
+margin-top: 1rem;
+flex-wrap: wrap;
+}
+
+.meta-tag {
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+background: rgba(0, 128, 255, 0.2);
+padding: 0.4rem 1rem;
+border-radius: 20px;
+font-size: 0.85rem;
+color: #00ffff;
+border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.view-details-btn {
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+margin-top: 1rem;
+padding: 0.7rem 1.5rem;
+background: linear-gradient(135deg, #00ffff, #0080ff);
+color: #000;
+border: none;
+border-radius: 25px;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+font-size: 0.95rem;
+}
+
+.view-details-btn:hover {
+transform: scale(1.05);
+box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
+}
+
+/* Modal Image Gallery */
+.modal-image-showcase {
+width: 100%;
+margin: 2rem 0;
+border-radius: 15px;
+overflow: hidden;
+box-shadow: 0 10px 40px rgba(0, 255, 255, 0.2);
+}
+
+.modal-image-showcase img {
+width: 100%;
+height: auto;
+display: block;
+border-radius: 15px;
+}
+
+.modal-image-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 1.5rem;
+margin: 2rem 0;
+}
+
+.modal-image-item {
+border-radius: 12px;
+overflow: hidden;
+border: 2px solid rgba(0, 255, 255, 0.3);
+transition: all 0.3s ease;
+cursor: pointer;
+position: relative;
+}
+
+.modal-image-item:hover {
+transform: scale(1.05);
+border-color: rgba(0, 255, 255, 0.8);
+box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
+}
+
+.modal-image-item img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+display: block;
+}
+
+.modal-image-caption {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.9));
+color: #fff;
+padding: 1rem;
+font-size: 0.9rem;
+text-align: center;
+opacity: 0;
+transition: opacity 0.3s ease;
+}
+
+.modal-image-item img {
+animation: fadeInImage 0.6s ease;
+}
+
+@keyframes fadeInImage {
+from {
+opacity: 0;
+transform: scale(0.95);
+}
+
+to {
+opacity: 1;
+transform: scale(1);
+}
+}
+
+.modal-image-item:hover .modal-image-caption {
+opacity: 1;
+}
+
+@media (max-width: 768px) {
+.research-item-image {
+height: 180px;
+}
+
+.modal-image-grid {
+grid-template-columns: 1fr;
+}
+
+.modal-image-item img {
+height: 250px;
+}
+}
+
+.research-item::before {
+content: '';
+position: absolute;
+left: 0;
+top: 0;
+height: 100%;
+width: 0;
+background: linear-gradient(90deg, rgba(0, 255, 255, 0.15), transparent);
+transition: width 0.3s ease;
+}
+
+.research-item:hover {
+background: rgba(0, 255, 255, 0.1);
+transform: translateX(8px);
+box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+}
+
+.research-item:hover::before {
+width: 100%;
+}
+
+.research-item h4 {
+color: #ffffff;
+font-size: 1.3rem;
+margin-bottom: 1rem;
+font-weight: 600;
+line-height: 1.4;
+}
+
+.research-item p {
+color: #cccccc;
+line-height: 1.7;
+font-size: 1rem;
+}
+
+.research-meta {
+display: flex;
+gap: 1.5rem;
+margin-top: 1rem;
+flex-wrap: wrap;
+}
+
+.meta-tag {
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+background: rgba(0, 128, 255, 0.2);
+padding: 0.4rem 1rem;
+border-radius: 20px;
+font-size: 0.85rem;
+color: #00ffff;
+border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.view-details-btn {
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+margin-top: 1rem;
+padding: 0.7rem 1.5rem;
+background: linear-gradient(135deg, #00ffff, #0080ff);
+color: #000;
+border: none;
+border-radius: 25px;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+font-size: 0.95rem;
+}
+
+.view-details-btn:hover {
+transform: scale(1.05);
+box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
+}
+
+/* Research Modal Styles */
+.research-modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.95);
+z-index: 15000;
+backdrop-filter: blur(15px);
+animation: fadeIn 0.3s ease;
+}
+
+.research-modal.active {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.research-modal-content {
+background: linear-gradient(135deg, rgba(15, 15, 25, 0.98), rgba(25, 15, 35, 0.98));
+border: 2px solid rgba(0, 255, 255, 0.4);
+border-radius: 25px;
+max-width: 900px;
+width: 95%;
+max-height: 85vh;
+overflow-y: auto;
+padding: 3rem;
+position: relative;
+box-shadow: 0 25px 70px rgba(0, 255, 255, 0.4);
+animation: modalSlideIn 0.4s ease;
+}
+
+.research-modal-close {
+position: absolute;
+top: 1.5rem;
+right: 1.5rem;
+background: rgba(0, 255, 255, 0.3);
+border: 2px solid rgba(0, 255, 255, 0.6);
+color: #00ffff;
+font-size: 1.8rem;
+width: 45px;
+height: 45px;
+border-radius: 50%;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.3s ease;
+font-weight: 300;
+}
+
+.research-modal-close:hover {
+background: rgba(0, 255, 255, 0.5);
+transform: rotate(90deg) scale(1.1);
+}
+
+.research-modal h3 {
+color: #00ffff;
+font-size: 2rem;
+margin-bottom: 1rem;
+line-height: 1.3;
+}
+
+.research-modal h4 {
+color: #0080ff;
+font-size: 1.4rem;
+margin-top: 2rem;
+margin-bottom: 1rem;
+}
+
+.research-modal p {
+color: #cccccc;
+line-height: 1.8;
+margin-bottom: 1rem;
+font-size: 1.05rem;
+}
+
+.research-modal ul {
+list-style: none;
+padding-left: 0;
+margin: 1.5rem 0;
+}
+
+.research-modal ul li {
+color: #cccccc;
+padding: 0.8rem 0;
+padding-left: 2rem;
+position: relative;
+line-height: 1.7;
+border-left: 3px solid rgba(0, 255, 255, 0.3);
+margin-bottom: 0.5rem;
+background: rgba(0, 255, 255, 0.03);
+border-radius: 5px;
+}
+
+.research-modal ul li::before {
+content: '▸';
+position: absolute;
+left: 0.7rem;
+color: #00ffff;
+font-weight: bold;
+}
+
+.external-link-btn {
+display: inline-flex;
+align-items: center;
+gap: 0.7rem;
+margin-top: 2rem;
+padding: 1rem 2rem;
+background: linear-gradient(135deg, #00ffff, #0080ff);
+color: #000;
+border: none;
+border-radius: 30px;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.3s ease;
+text-decoration: none;
+font-size: 1.05rem;
+box-shadow: 0 8px 25px rgba(0, 255, 255, 0.3);
+}
+
+.external-link-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 12px 35px rgba(0, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+.research-grid {
+grid-template-columns: 1fr;
+gap: 2rem;
+}
+
+.research-section h2 {
+font-size: 2rem;
+}
+
+.research-category {
+padding: 1.5rem;
+}
+
+.research-modal-content {
+padding: 2rem 1.5rem;
+}
+}
+
+/* Popup Modal Styles */
+.modal-overlay {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.9);
+z-index: 10000;
+backdrop-filter: blur(10px);
+animation: fadeIn 0.3s ease;
+}
+
+.modal-overlay.active {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.modal-content {
+background: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(20, 20, 40, 0.95));
+border: 2px solid rgba(0, 255, 255, 0.3);
+border-radius: 20px;
+max-width: 900px;
+width: 90%;
+max-height: 85vh;
+overflow-y: auto;
+padding: 2.5rem;
+position: relative;
+box-shadow: 0 20px 60px rgba(0, 255, 255, 0.3);
+animation: modalSlideIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+from {
+opacity: 0;
+}
+
+to {
+opacity: 1;
+}
+}
+
+@keyframes modalSlideIn {
+from {
+opacity: 0;
+transform: translateY(-50px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.modal-close {
+position: absolute;
+top: 1rem;
+right: 1rem;
+background: rgba(0, 255, 255, 0.2);
+border: 2px solid rgba(0, 255, 255, 0.5);
+color: #00ffff;
+font-size: 1.5rem;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+background: rgba(0, 255, 255, 0.4);
+transform: rotate(90deg);
+}
+
+/* Navigation buttons for award modals */
+.modal-nav {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: rgba(0, 255, 255, 0.3);
+border: 2px solid rgba(0, 255, 255, 0.6);
+color: #00ffff;
+font-size: 2rem;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.3s ease;
+z-index: 1000;
+}
+
+.modal-nav:hover {
+background: rgba(0, 255, 255, 0.5);
+transform: translateY(-50%) scale(1.1);
+}
+
+.modal-nav.prev {
+left: -70px;
+}
+
+.modal-nav.next {
+right: -70px;
+}
+
+@media (max-width: 768px) {
+.modal-nav {
+width: 40px;
+height: 40px;
+font-size: 1.5rem;
+}
+
+.modal-nav.prev {
+left: 10px;
+}
+
+.modal-nav.next {
+right: 10px;
+}
+}
+
+.modal-header h3 {
+color: #00ffff;
+font-size: 2rem;
+margin-bottom: 0.5rem;
+}
+
+.modal-year {
+color: #0080ff;
+font-weight: bold;
+font-size: 1.2rem;
+margin-bottom: 1.5rem;
+}
+
+.modal-description {
+color: #cccccc;
+line-height: 1.8;
+margin-bottom: 2rem;
+font-size: 1.05rem;
+}
+
+.modal-gallery {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 1rem;
+margin-top: 2rem;
+}
+
+.modal-gallery-item {
+position: relative;
+border-radius: 10px;
+overflow: hidden;
+cursor: pointer;
+border: 2px solid rgba(0, 255, 255, 0.2);
+transition: all 0.3s ease;
+}
+
+.modal-gallery-item:hover {
+transform: scale(1.05);
+border-color: rgba(0, 255, 255, 0.6);
+box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+}
+
+.modal-gallery-item img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+display: block;
+}
+
+/* Small Link Buttons for Cards */
+.card-link-buttons {
+display: flex;
+gap: 0.5rem;
+margin: 1rem 0;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.card-link-btn {
+display: inline-flex;
+align-items: center;
+gap: 0.4rem;
+padding: 0.5rem 1rem;
+background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(0, 128, 255, 0.2));
+border: 1px solid rgba(0, 255, 255, 0.4);
+border-radius: 20px;
+color: #00ffff;
+text-decoration: none;
+font-size: 0.8rem;
+font-weight: 600;
+transition: all 0.3s ease;
+}
+
+.card-link-btn:hover {
+background: linear-gradient(135deg, rgba(0, 255, 255, 0.4), rgba(0, 128, 255, 0.4));
+transform: translateY(-2px);
+box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+}
+
+.card-link-btn::before {
+content: '';
+font-size: 0.9rem;
+}
+
+/* Lightbox for full image view */
+.lightbox {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.95);
+z-index: 20000;
+align-items: center;
+justify-content: center;
+}
+
+.lightbox.active {
+display: flex;
+}
+
+.lightbox-content {
+max-width: 90%;
+max-height: 90%;
+position: relative;
+}
+
+.lightbox-content img {
+max-width: 100%;
+max-height: 90vh;
+border-radius: 10px;
+box-shadow: 0 0 50px rgba(0, 255, 255, 0.5);
+}
+
+.lightbox-content img {
+max-width: 100%;
+max-height: 90vh;
+border-radius: 10px;
+box-shadow: 0 0 50px rgba(0, 255, 255, 0.5);
+cursor: zoom-in;
+transition: transform 0.3s ease;
+}
+
+.lightbox-content img.zoomed {
+cursor: zoom-out;
+transform: scale(1.5);
+}
+
+.lightbox-content {
+overflow: auto;
+padding: 2rem;
+}
+
+.lightbox-close {
+position: absolute;
+top: 2rem;
+right: 2rem;
+background: rgba(0, 255, 255, 0.3);
+border: 2px solid #00ffff;
+color: #00ffff;
+font-size: 2rem;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.3s ease;
+}
+
+.lightbox-close:hover {
+background: rgba(0, 255, 255, 0.5);
+transform: rotate(90deg);
+}
+
+/* Leadership Popup - Image Focused Design */
+.leadership-modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.95);
+z-index: 15000;
+backdrop-filter: blur(15px);
+animation: fadeIn 0.3s ease;
+}
+
+.leadership-modal.active {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.leadership-modal-content {
+background: linear-gradient(135deg, rgba(15, 15, 25, 0.98), rgba(25, 15, 35, 0.98));
+border: 2px solid rgba(128, 0, 255, 0.4);
+border-radius: 25px;
+max-width: 1100px;
+width: 95%;
+max-height: 90vh;
+overflow-y: auto;
+padding: 0;
+position: relative;
+box-shadow: 0 25px 70px rgba(128, 0, 255, 0.4);
+animation: modalSlideIn 0.4s ease;
+}
+
+.leadership-modal-header {
+background: linear-gradient(135deg, rgba(128, 0, 255, 0.2), rgba(0, 128, 255, 0.2));
+padding: 2rem 2.5rem;
+border-bottom: 2px solid rgba(128, 0, 255, 0.3);
+position: relative;
+}
+
+.leadership-modal-header h3 {
+color: #8000ff;
+font-size: 2rem;
+margin-bottom: 0.5rem;
+text-shadow: 0 0 20px rgba(128, 0, 255, 0.5);
+}
+
+.leadership-modal-year {
+color: #00ffff;
+font-weight: 600;
+font-size: 1.1rem;
+}
+
+.leadership-modal-close {
+position: absolute;
+top: 1.5rem;
+right: 1.5rem;
+background: rgba(128, 0, 255, 0.3);
+border: 2px solid rgba(128, 0, 255, 0.6);
+color: #8000ff;
+font-size: 1.8rem;
+width: 45px;
+height: 45px;
+border-radius: 50%;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.3s ease;
+font-weight: 300;
+}
+
+.leadership-modal-close:hover {
+background: rgba(128, 0, 255, 0.5);
+transform: rotate(90deg) scale(1.1);
+}
+
+.leadership-modal-body {
+padding: 0;
+}
+
+.leadership-gallery-main {
+position: relative;
+width: 100%;
+height: 500px;
+background: #000;
+overflow: hidden;
+}
+
+.leadership-gallery-main img {
+width: 100%;
+height: 100%;
+object-fit: contain;
+display: none;
+animation: imageZoomIn 0.5s ease;
+}
+
+.leadership-gallery-main img.active {
+display: block;
+}
+
+@keyframes imageZoomIn {
+from {
+opacity: 0;
+transform: scale(0.9);
+}
+
+to {
+opacity: 1;
+transform: scale(1);
+}
+}
+
+.gallery-nav-btn {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: rgba(128, 0, 255, 0.7);
+border: 2px solid rgba(128, 0, 255, 0.9);
+color: white;
+font-size: 2rem;
+width: 60px;
+height: 60px;
+border-radius: 50%;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.3s ease;
+z-index: 10;
+}
+
+.gallery-nav-btn:hover {
+background: rgba(128, 0, 255, 0.9);
+transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-nav-btn.prev {
+left: 20px;
+}
+
+.gallery-nav-btn.next {
+right: 20px;
+}
+
+.leadership-gallery-thumbs {
+display: flex;
+gap: 1rem;
+padding: 1.5rem;
+overflow-x: auto;
+background: rgba(0, 0, 0, 0.3);
+scrollbar-width: thin;
+scrollbar-color: rgba(128, 0, 255, 0.5) rgba(0, 0, 0, 0.3);
+}
+
+.leadership-gallery-thumbs::-webkit-scrollbar {
+height: 8px;
+}
+
+.leadership-gallery-thumbs::-webkit-scrollbar-track {
+background: rgba(0, 0, 0, 0.3);
+}
+
+.leadership-gallery-thumbs::-webkit-scrollbar-thumb {
+background: rgba(128, 0, 255, 0.5);
+border-radius: 4px;
+}
+
+.gallery-thumb {
+min-width: 120px;
+height: 80px;
+border-radius: 8px;
+overflow: hidden;
+cursor: pointer;
+border: 3px solid transparent;
+transition: all 0.3s ease;
+opacity: 0.6;
+}
+
+.gallery-thumb:hover {
+opacity: 1;
+transform: scale(1.05);
+}
+
+.gallery-thumb.active {
+border-color: #8000ff;
+opacity: 1;
+box-shadow: 0 0 20px rgba(128, 0, 255, 0.6);
+}
+
+.gallery-thumb img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.leadership-modal-description {
+padding: 2rem 2.5rem;
+color: #cccccc;
+line-height: 1.9;
+font-size: 1.05rem;
+}
+
+.leadership-modal-description p {
+margin-bottom: 1rem;
+}
+
+.image-counter {
+position: absolute;
+bottom: 20px;
+right: 20px;
+background: rgba(0, 0, 0, 0.7);
+color: #00ffff;
+padding: 0.5rem 1rem;
+border-radius: 20px;
+font-size: 0.9rem;
+font-weight: 600;
+border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+/* Footer Styles */
+footer {
+background: linear-gradient(180deg, rgba(10, 10, 10, 0.95), rgba(0, 0, 0, 1));
+padding: 4rem 0 2rem;
+margin-top: 5rem;
+border-top: 2px solid rgba(0, 255, 255, 0.2);
+position: relative;
+overflow: hidden;
+}
+
+footer::before {
+content: '';
+position: absolute;
+top: -100px;
+left: 0;
+width: 100%;
+height: 100px;
+background: linear-gradient(180deg, transparent, rgba(0, 255, 255, 0.05));
+animation: footerWave 8s ease-in-out infinite;
+}
+
+@keyframes footerWave {
+
+0%,
+100% {
+transform: translateX(0);
+}
+
+50% {
+transform: translateX(50px);
+}
+}
+
+.footer-content {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 3rem;
+align-items: center;
+}
+
+.footer-left h3 {
+font-size: 2rem;
+background: linear-gradient(135deg, #00ffff, #0080ff);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+margin-bottom: 1rem;
+}
+
+.footer-left p {
+color: #999;
+line-height: 1.8;
+margin-bottom: 1.5rem;
+}
+
+.footer-social {
+display: flex;
+gap: 1rem;
+margin-top: 1.5rem;
+}
+
+.social-icon {
+width: 45px;
+height: 45px;
+border-radius: 50%;
+background: rgba(0, 255, 255, 0.1);
+border: 2px solid rgba(0, 255, 255, 0.3);
+display: flex;
+align-items: center;
+justify-content: center;
+color: #00ffff;
+text-decoration: none;
+font-size: 1.2rem;
+transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+background: rgba(0, 255, 255, 0.3);
+transform: translateY(-5px) rotate(360deg);
+box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
+}
+
+.footer-right {
+text-align: center;
+}
+
+.footer-links {
+display: flex;
+flex-direction: column;
+gap: 1rem;
+align-items: center;
+}
+
+.footer-link {
+display: inline-flex;
+align-items: center;
+gap: 0.7rem;
+padding: 1rem 2rem;
+background: linear-gradient(45deg, #00ffff, #0080ff);
+color: white;
+border-radius: 50px;
+text-decoration: none;
+font-weight: 700;
+box-shadow: 0 8px 25px rgba(0, 128, 255, 0.3);
+transition: all 0.3s ease;
+min-width: 250px;
+justify-content: center;
+}
+
+.footer-link:hover {
+transform: translateY(-3px);
+box-shadow: 0 12px 35px rgba(0, 255, 255, 0.5);
+}
+
+.footer-bottom {
+text-align: center;
+padding-top: 2rem;
+margin-top: 3rem;
+border-top: 1px solid rgba(0, 255, 255, 0.1);
+color: #666;
+font-size: 0.9rem;
+}
+
+.footer-particles {
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+pointer-events: none;
+overflow: hidden;
+}
+
+.footer-particle {
+position: absolute;
+width: 3px;
+height: 3px;
+background: rgba(0, 255, 255, 0.5);
+border-radius: 50%;
+animation: floatParticle 6s linear infinite;
+}
+
+@keyframes floatParticle {
+0% {
+transform: translateY(100%) translateX(0) rotate(0deg);
+opacity: 0;
+}
+
+10% {
+opacity: 1;
+}
+
+90% {
+opacity: 1;
+}
+
+100% {
+transform: translateY(-100%) translateX(100px) rotate(360deg);
+opacity: 0;
+}
+}
+
+@media (max-width: 768px) {
+.footer-content {
+grid-template-columns: 1fr;
+text-align: center;
+}
+
+.footer-social {
+justify-content: center;
+}
+
+.footer-links {
+width: 100%;
+}
+
+.footer-link {
+width: 100%;
+}
+}
+
+/* Contact Section */
+.contact-form {
+max-width: 800px;
+margin: 0 auto;
+background: rgba(0, 255, 255, 0.03);
+padding: 2rem;
+border-radius: 20px;
+border: 1px solid rgba(0, 255, 255, 0.08);
+text-align: center;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 1rem;
+flex-direction: column;
+}
+
+/* group that holds the links/buttons */
+.contact-links {
+display: flex;
+gap: 1rem;
+flex-wrap: wrap;
+justify-content: center;
+margin-top: 1rem;
+}
+
+/* style cho từng nút/link */
+.contact-link {
+display: inline-flex;
+align-items: center;
+gap: .5rem;
+padding: .85rem 1.4rem;
+background: linear-gradient(45deg, #00ffff, #0080ff);
+color: #ffffff;
+border-radius: 999px;
+text-decoration: none;
+font-weight: 700;
+box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+white-space: nowrap;
+}
+
+.contact-link:hover {
+transform: translateY(-3px);
+box-shadow: 0 12px 30px rgba(0, 128, 255, 0.25);
+opacity: 0.98;
+}
+
+/* nhỏ màn hình: nút full width */
+@media (max-width: 768px) {
+.contact-form {
+padding: 1.25rem;
+}
+
+.contact-links {
+width: 100%;
+flex-direction: column;
+gap: .75rem;
+}
+
+.contact-link {
+width: 100%;
+justify-content: center;
+padding: .85rem;
+}
+}
+
+/* Responsive Design */
+/* Responsive Design - IMPROVED */
+@media (max-width: 768px) {
+
+/* Navigation Mobile */
+.nav-container {
+padding: 1rem 1.5rem;
+flex-wrap: wrap;
+}
+
+.nav-links {
+display: none;
+/* Ẩn menu cho mobile, có thể thêm hamburger menu sau */
+}
+
+.logo {
+font-size: 1.3rem;
+letter-spacing: 1px;
+}
+
+/* Hero Section Mobile */
+.hero h1 {
+font-size: 2rem;
+line-height: 1.3;
+padding: 0 1rem;
+}
+
+.hero-subtitle {
+font-size: 1rem;
+letter-spacing: 1.5px;
+}
+
+.hero-description {
+font-size: 0.95rem;
+padding: 0 1.5rem;
+margin-bottom: 2rem;
+}
+
+.cta-button {
+padding: 1rem 2rem;
+font-size: 1rem;
+}
+
+/* About Section Mobile */
+.about-content {
+grid-template-columns: 1fr;
+gap: 2rem;
+}
+
+.about-image {
+height: 300px;
+}
+
+.about-stats {
+grid-template-columns: repeat(2, 1fr);
+gap: 0.8rem;
+}
+
+.stat-item {
+padding: 0.8rem;
+}
+
+.stat-number {
+font-size: 1.5rem;
+}
+
+/* Awards Grid Mobile */
+.awards-grid {
+grid-template-columns: 1fr;
+gap: 1.5rem;
+}
+
+.award-card {
+padding: 1.5rem;
+}
+
+.award-image {
+height: 180px;
+}
+
+/* Leadership Mobile */
+.leadership-new-grid {
+grid-template-columns: 1fr;
+gap: 2rem;
+}
+
+.leadership-new-images {
+height: 220px;
+}
+
+.leadership-new-content {
+padding: 1.5rem;
+}
+
+.leadership-new-content h3 {
+font-size: 1.2rem;
+}
+
+.leadership-new-content p {
+font-size: 0.95rem;
+}
+
+.leadership-content {
+grid-template-columns: 1fr;
+gap: 1.5rem;
+}
+
+.leadership-card {
+padding: 1.5rem;
+min-height: auto;
+}
+
+.scroll-images {
+gap: 0.8rem;
+}
+
+.scroll-image {
+min-width: 90px;
+height: 70px;
+}
+
+/* Research Section Mobile */
+.research-section h2 {
+font-size: 2rem;
+margin-bottom: 0.5rem;
+}
+
+.research-subtitle {
+font-size: 1rem;
+margin-bottom: 2rem;
+}
+
+.research-grid {
+grid-template-columns: 1fr;
+gap: 2rem;
+}
+
+.research-category {
+padding: 1.5rem;
+}
+
+.category-header {
+flex-direction: column;
+text-align: center;
+gap: 0.8rem;
+}
+
+.category-icon {
+width: 50px;
+height: 50px;
+font-size: 1.5rem;
+}
+
+.category-header h3 {
+font-size: 1.4rem;
+}
+
+.research-item-image {
+height: 180px;
+}
+
+.research-item-content {
+padding: 1.2rem;
+}
+
+.research-item h4 {
+font-size: 1.1rem;
+}
+
+.research-item p {
+font-size: 0.95rem;
+}
+
+.research-meta {
+gap: 0.5rem;
+}
+
+.meta-tag {
+font-size: 0.75rem;
+padding: 0.3rem 0.8rem;
+}
+
+.view-details-btn {
+width: 100%;
+justify-content: center;
+padding: 0.8rem 1.2rem;
+font-size: 0.9rem;
+}
+
+/* Research Modal Mobile */
+.research-modal-content {
+padding: 1.5rem 1rem;
+width: 98%;
+max-height: 90vh;
+}
+
+.research-modal-close {
+top: 1rem;
+right: 1rem;
+width: 40px;
+height: 40px;
+font-size: 1.5rem;
+}
+
+.research-modal h3 {
+font-size: 1.5rem;
+padding-right: 3rem;
+}
+
+.research-modal h4 {
+font-size: 1.2rem;
+}
+
+.research-modal p,
+.research-modal ul li {
+font-size: 0.95rem;
+}
+
+.modal-image-grid {
+grid-template-columns: 1fr;
+gap: 1rem;
+}
+
+.modal-image-item img {
+height: 220px;
+}
+
+.external-link-btn {
+width: 100%;
+justify-content: center;
+padding: 0.9rem 1.5rem;
+font-size: 0.95rem;
+}
+
+/* Skills Section Mobile */
+.skills-grid {
+grid-template-columns: 1fr !important;
+gap: 1.2rem !important;
+}
+
+.skill-card {
+padding: 1.5rem !important;
+}
+
+.skill-icon-geometry {
+width: 60px !important;
+height: 60px !important;
+}
+
+.skill-card h3 {
+font-size: 1.1rem !important;
+}
+
+.skill-card p {
+font-size: 0.9rem !important;
+}
+
+/* Modal Mobile */
+.modal-content {
+width: 95%;
+padding: 1.5rem;
+max-height: 90vh;
+}
+
+.modal-header h3 {
+font-size: 1.5rem;
+padding-right: 3rem;
+}
+
+.modal-description {
+font-size: 0.95rem;
+}
+
+.modal-gallery {
+grid-template-columns: 1fr;
+gap: 1rem;
+}
+
+.modal-gallery-item img {
+height: 220px;
+}
+
+/* Leadership Modal Mobile */
+.leadership-modal-content {
+width: 98%;
+padding: 0;
+}
+
+.leadership-gallery-main {
+height: 280px;
+}
+
+.gallery-nav-btn {
+width: 45px;
+height: 45px;
+font-size: 1.5rem;
+}
+
+.gallery-nav-btn.prev {
+left: 10px;
+}
+
+.gallery-nav-btn.next {
+right: 10px;
+}
+
+.leadership-modal-header {
+padding: 1.5rem;
+}
+
+.leadership-modal-header h3 {
+font-size: 1.4rem;
+}
+
+.leadership-modal-description {
+padding: 1.5rem;
+font-size: 0.95rem;
+}
+
+.leadership-gallery-thumbs {
+padding: 1rem;
+}
+
+.gallery-thumb {
+min-width: 100px;
+height: 70px;
+}
+
+/* Footer Mobile */
+.footer-content {
+grid-template-columns: 1fr;
+text-align: center;
+gap: 2rem;
+}
+
+.footer-left h3 {
+font-size: 1.6rem;
+}
+
+.footer-left p {
+font-size: 0.95rem;
+}
+
+.footer-social {
+justify-content: center;
+}
+
+.footer-links {
+width: 100%;
+}
+
+.footer-link {
+width: 100%;
+padding: 0.9rem 1.5rem;
+font-size: 0.95rem;
+}
+
+.footer-bottom {
+font-size: 0.85rem;
+padding: 1.5rem 1rem;
+}
+
+/* Contact Section Mobile */
+.contact-form {
+padding: 1.5rem 1rem;
+}
+
+.contact-links {
+width: 100%;
+flex-direction: column;
+gap: 0.8rem;
+}
+
+.contact-link {
+width: 100%;
+justify-content: center;
+padding: 0.9rem 1.2rem;
+font-size: 0.95rem;
+}
+
+/* Section Padding Mobile */
+.section {
+padding: 3rem 1rem;
+}
+
+.section h2 {
+font-size: 2rem;
+margin-bottom: 2rem;
+}
+
+.section h2::after {
+width: 80px;
+}
+}
+
+/* Extra Small Mobile (< 480px) */
+@media (max-width: 480px) {
+.hero h1 {
+font-size: 1.8rem;
+}
+
+.hero-subtitle {
+font-size: 0.9rem;
+letter-spacing: 1px;
+}
+
+.hero-description {
+font-size: 0.9rem;
+}
+
+.about-stats {
+grid-template-columns: 1fr;
+}
+
+.section h2 {
+font-size: 1.8rem;
+}
+
+.research-modal h3 {
+font-size: 1.3rem;
+}
+
+.leadership-modal-header h3 {
+font-size: 1.2rem;
+}
+}
+
+/* Scroll Animations */
+.fade-in {
+opacity: 0;
+transform: translateY(30px);
+transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* Stagger animation for research items */
+.research-item {
+animation: slideInLeft 0.6s ease forwards;
+opacity: 0;
+}
+
+.research-item:nth-child(1) {
+animation-delay: 0.1s;
+}
+
+.research-item:nth-child(2) {
+animation-delay: 0.3s;
+}
+
+@keyframes slideInLeft {
+from {
+opacity: 0;
+transform: translateX(-30px);
+}
+
+to {
+opacity: 1;
+transform: translateX(0);
+}
+}
+
+.research-section.visible .research-item {
+animation-play-state: running;
+}
+
+/* Particle Effect */
+.particle {
+position: absolute;
+width: 2px;
+height: 2px;
+background: #00ffff;
+border-radius: 50%;
+animation: particle-float 4s linear infinite;
+}
+
+@keyframes particle-float {
+0% {
+transform: translateY(100vh) translateX(0);
+opacity: 0;
+}
+
+10% {
+opacity: 1;
+}
+
+90% {
+opacity: 1;
+}
+
+100% {
+transform: translateY(-100px) translateX(100px);
+opacity: 0;
+}
+}
+
+/* Mouse trail effect */
+.cursor-trail {
+position: fixed;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+pointer-events: none;
+z-index: 9999;
+background: radial-gradient(circle, rgba(0, 255, 255, 0.8), rgba(0, 128, 255, 0.4));
+box-shadow: 0 0 20px rgba(0, 255, 255, 0.8),
+0 0 40px rgba(0, 255, 255, 0.4);
+animation: trailFade 0.8s ease-out forwards;
+}
+
+@keyframes trailFade {
+0% {
+transform: scale(1);
+opacity: 1;
+}
+
+100% {
+transform: scale(0);
+opacity: 0;
+}
+}
+
+.cursor-glow {
+position: fixed;
+width: 30px;
+height: 30px;
+border: 2px solid rgba(0, 255, 255, 0.5);
+border-radius: 50%;
+pointer-events: none;
+z-index: 9998;
+transition: transform 0.1s ease;
+mix-blend-mode: screen;
+}
+</style></head><body><div class="geometric-bg"><div class="geometric-shape shape-1"></div><div class="geometric-shape shape-2"></div><div class="geometric-shape shape-3"></div><div class="geometric-shape shape-4"></div></div><nav><div class="nav-container"><a href="#home" class="nav-avatar"><img src="https://eduportfolio.github.io/NhatMinh/avt.jpg" alt="Nguyen Viet Nhat Minh" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23001a33%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2236%22 fill=%22%2300ffff%22 font-weight=%22bold%22%3ENM%3C/text%3E%3C/svg%3E'"></a><a href="#home" class="logo">NHAT MINH</a><ul class="nav-links"><li><a href="#home">Home</a></li><li><a href="#about">About Me</a></li><li><a href="#awards">Honors &amp; Awards</a></li><li><a href="#research">Research &amp; Projects</a></li><li><a href="#leadership">Leadership</a></li><li><a href="#socialwork">Social Work</a></li><li><a href="#skills">Talents</a></li><li><a href="#contact">Contact</a></li></ul></div></nav><section id="home" class="hero"><div class="hero-orb hero-orb-1"></div><div class="hero-orb hero-orb-2"></div><div class="hero-orb hero-orb-3"></div><!-- Particle System --><div class="hero-particle-system" id="heroParticles"></div><!-- Floating Dots --><div class="hero-dots" id="heroDots"></div><div class="hero-content"><h1>NGUYEN VIET NHAT MINH</h1><p class="hero-subtitle">Engineering · Applied Science · Community Leadership</p><p class="hero-description">
+Welcome! I'm Nguyen Viet Nhat Minh, currently a Physics-specialized student at HUS High School for
+Gifted Students. My academic background, community leadership, and research interest in sustainable
+innovation have shaped my aspiration to pursue Engineering. Discover my journey below.
+</p><a href="#about" class="cta-button">Explore My Profile</a></div></section><section id="about" class="section fade-in"><h2>About Me</h2><div class="about-content"><div class="about-image shimmer"><img src="https://eduportfolio.github.io/NhatMinh/IMG_0661.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;"></div><div class="about-text" style="text-align: justify; max-width: 700px; margin: 0 auto;"><p>I am a Grade 12 student in the Physics-specialized class at HUS High School for Gifted Students,
+with a GPA of 9.5 in Grade 10 and 9.4 in Grade 11. I have achieved an SAT score of 1560 and an
+IELTS score of 7.5.</p><p>My interest in engineering developed gradually through years of engaging with mathematics,
+physics, and hands-on problem solving. From classroom experiments to community activities, I
+became increasingly aware of how scientific knowledge can be transformed into real solutions
+that serve people and the environment.</p><p>This realization guided me toward engineering-a field where I can apply technical understanding
+to create sustainable, practical, and human-centered innovations. I see engineering as a path to
+combine logic with compassion, and creativity with responsibility.</p><div class="about-stats"><div class="stat-item"><div class="stat-number">9.5</div><div>Grade 10 GPA</div></div><div class="stat-item"><div class="stat-number">1560</div><div>SAT Score</div></div><div class="stat-item"><div class="stat-number">7.5</div><div>IELTS Score</div></div><div class="stat-item"><div class="stat-number">9.4</div><div>Grade 11 GPA</div></div></div></div></div></section><section id="awards" class="section fade-in"><h2>Honors &amp; Awards</h2><div class="awards-grid"><!-- IPITEx Card --><div class="award-card shimmer" style="cursor:pointer;" onclick="openAwardModal('ipitex')"><div class="award-image" style="position: relative; width: 100%; max-width: 300px; height: 150px; overflow: hidden; border-radius: 10px;"><img src="https://eduportfolio.github.io/NhatMinh/ipitex1.jpg" alt="IPITEx Gold Medal" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; transition: opacity 0.3s; opacity: 0;" class="award-photo" data-index="0"><img src="https://eduportfolio.github.io/NhatMinh/ipitex2.jpg" alt="IPITEx Presentation" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 1; transition: opacity 0.3s;" class="award-photo" data-index="1"><img src="https://eduportfolio.github.io/NhatMinh/z6782421039624_2f86e0b90beaa68ebfe2c1b84c02d034.jpg" alt="IPITEx Award Ceremony" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 0; transition: opacity 0.3s;" class="award-photo" data-index="2"></div><script>
+(function () {
+const container = document.currentScript.previousElementSibling;
+const images = container.querySelectorAll('.award-photo');
+let current = 0;
+let intervalId = null;
+
+function updateImages() {
+images.forEach((img, idx) => {
+img.style.opacity = (idx === current) ? '1' : '0';
+});
+}
+
+function nextImage() {
+current = (current + 1) % images.length;
+updateImages();
+}
+
+intervalId = setInterval(nextImage, 1500);
+updateImages();
+})();
+</script><div class="award-year">2024</div><h3>Gold Medal - IPITEx Biochemistry Category</h3><p>Developed a chemical-based solution for filtering polluted river water.</p></div><!-- ASMO Card --><div class="award-card shimmer" style="cursor:pointer;" onclick="openAwardModal('asmo')"><div class="award-image" style="position: relative; width: 100%; max-width: 300px; height: 150px; overflow: hidden; border-radius: 10px;"><img src="https://eduportfolio.github.io/NhatMinh/asmo.jpg" alt="ASMO Medal" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; transition: opacity 0.3s; opacity: 0;" class="award-photo" data-index="0"><img src="https://eduportfolio.github.io/NhatMinh/z6782419843679_550e3be71db57e1e8dd885c626c16d63.jpg" alt="ASMO Competition" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 1; transition: opacity 0.3s;" class="award-photo" data-index="1"><img src="https://eduportfolio.github.io/NhatMinh/z6782418012545_b89c1a0bcfcf64f498add8c917a228a7.jpg" alt="ASMO Award" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 0; transition: opacity 0.3s;" class="award-photo" data-index="2"><img src="https://eduportfolio.github.io/NhatMinh/z6782412230287_6592d4ae21a16784a23b831639274749.jpg" alt="ASMO Event" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 0; transition: opacity 0.3s;" class="award-photo" data-index="3"><img src="https://eduportfolio.github.io/NhatMinh/z6782410088184_754fe45818daef9cf932bdd387fdfedf.jpg" alt="ASMO Team" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 0; transition: opacity 0.3s;" class="award-photo" data-index="4"></div><script>
+(function () {
+const container = document.currentScript.previousElementSibling;
+const images = container.querySelectorAll('.award-photo');
+let current = 0;
+let intervalId = null;
+
+function updateImages() {
+images.forEach((img, idx) => {
+img.style.opacity = (idx === current) ? '1' : '0';
+});
+}
+
+function nextImage() {
+current = (current + 1) % images.length;
+updateImages();
+}
+
+intervalId = setInterval(nextImage, 1500);
+updateImages();
+})();
+</script><div class="award-year">2024</div><h3>ASMO National Round</h3><p>Gold Medal in Mathematics, Silver Medal in English.</p></div><!-- Green Voice Card --><div class="award-card shimmer" style="cursor:pointer;" onclick="openAwardModal('greenvoice')"><div class="award-image" style="position: relative; width: 100%; max-width: 300px; height: 150px; overflow: hidden; border-radius: 10px;"><img src="https://eduportfolio.github.io/NhatMinh/ti%E1%BA%BFng%20n%C3%B3i%20xanh.jpg" alt="Green Voice Award" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; transition: opacity 0.3s; opacity: 0;" class="award-photo" data-index="0"><img src="https://eduportfolio.github.io/NhatMinh/ti%E1%BA%BFng%20n%C3%B3i%20xanh%202.jpg" alt="Green Voice Event" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 1; transition: opacity 0.3s;" class="award-photo" data-index="1"><img src="https://eduportfolio.github.io/NhatMinh/z6782431132833_cf77c9e05402acb100b00b94db063d67.jpg" alt="Green Voice Certificate" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 0; transition: opacity 0.3s;" class="award-photo" data-index="2"></div><script>
+(function () {
+const container = document.currentScript.previousElementSibling;
+const images = container.querySelectorAll('.award-photo');
+let current = 0;
+let intervalId = null;
+
+function updateImages() {
+images.forEach((img, idx) => {
+img.style.opacity = (idx === current) ? '1' : '0';
+});
+}
+
+function nextImage() {
+current = (current + 1) % images.length;
+updateImages();
+}
+
+intervalId = setInterval(nextImage, 1500);
+updateImages();
+})();
+</script><div class="award-year">2025</div><h3>Encouragement Award - Green Voice Competition</h3><p>Participated in a community-centered contest promoting environmental awareness.</p><div class="card-link-buttons"><a href="https://www.facebook.com/TiengnoiXanh/posts/-verdant-sun-%C3%BD-t%C6%B0%E1%BB%9Fng-extracting-sio2-from-rice-husk-ash-to-make-semiconductors-c/122190522752085425/" target="_blank" class="card-link-btn" onclick="event.stopPropagation();">
+View Project
+</a></div></div><!-- HSGS Performance Card --><div class="award-card shimmer" style="cursor:pointer;" onclick="openAwardModal('hsgsperformance')"><div class="award-image" style="position: relative; width: 100%; max-width: 300px; height: 150px; overflow: hidden; border-radius: 10px;"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6798047878298_faefdef7a2ad9e00930498a26dffabc7.jpg" alt="HSGS Performance 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; transition: opacity 0.3s; opacity: 0;" class="award-photo" data-index="0"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6798047890838_1db1a2414374a494bdce509c3763e23f.jpg" alt="HSGS Performance 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 0; transition: opacity 0.3s;" class="award-photo" data-index="1"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6798048028837_14642991c9976a206094413abe84e168.jpg" alt="HSGS Performance 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 0; transition: opacity 0.3s;" class="award-photo" data-index="2"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6798047902150_3466e1c1c5dbc3e5cc97b008f03f46a0.jpg" alt="HSGS Performance 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 0; transition: opacity 0.3s;" class="award-photo" data-index="3"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6798047881520_09b5f1236f7abfe991bed654179e8e0c.jpg" alt="HSGS Performance 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 1; transition: opacity 0.3s;" class="award-photo" data-index="4"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782468780685_7446280a783a7fb324bd7d61ac96b226.jpg" alt="HSGS Performance 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 0; transition: opacity 0.3s;" class="award-photo" data-index="5"></div><script>
+(function () {
+const container = document.currentScript.previousElementSibling;
+const images = container.querySelectorAll('.award-photo');
+let current = 0;
+let intervalId = null;
+
+function updateImages() {
+images.forEach((img, idx) => {
+img.style.opacity = (idx === current) ? '1' : '0';
+});
+}
+
+function nextImage() {
+current = (current + 1) % images.length;
+updateImages();
+}
+
+intervalId = setInterval(nextImage, 1500);
+updateImages();
+})();
+</script><div class="award-year">2025</div><h3>Special Prize - Cultural Performance Competition</h3><p>Honored for excellence in team performance at HSGS's Anniversary.</p></div><!-- AI-JAM Card --><div class="award-card shimmer" style="cursor:pointer;" onclick="openModal('aijam')"><!-- ẢNH TỰ CHUYỂN --><div class="award-image" style="position: relative; width: 100%; max-width: 300px; height: 150px; overflow: hidden; border-radius: 10px;"><img src="https://eduportfolio.github.io/NhatMinh/aij1.png" alt="AI-JAM 2025 Image 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; transition: opacity 0.3s; opacity: 1;" class="award-photo" data-index="0"><img src="https://eduportfolio.github.io/NhatMinh/aij.jpg" alt="AI-JAM 2025 Image 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 0; transition: opacity 0.3s;" class="award-photo" data-index="1"><img src="https://eduportfolio.github.io/NhatMinh/aij2.png" alt="AI-JAM 2025 Image 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 0; transition: opacity 0.3s;" class="award-photo" data-index="2"><img src="https://eduportfolio.github.io/NhatMinh/aij3.png" alt="AI-JAM 2025 Image 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 0; transition: opacity 0.3s;" class="award-photo" data-index="3"></div><!-- THÔNG TIN GIẢI THƯỞNG --><div class="award-year">2025</div><h3>Gold Medal - AI-JAM 2025</h3><p>Stroke Alert &amp; Rehabilitation Wearable Device Through Biosensors And AI</p></div><!-- SCRIPT CHẠY ẢNH TỰ ĐỘNG --><script>
+(function () {
+const container = document.currentScript.previousElementSibling.querySelector('.award-image');
+const images = container.querySelectorAll('.award-photo');
+let current = 0;
+
+function updateImages() {
+images.forEach((img, idx) => {
+img.style.opacity = (idx === current) ? '1' : '0';
+});
+}
+
+function nextImage() {
+current = (current + 1) % images.length;
+updateImages();
+}
+
+setInterval(nextImage, 1500);
+updateImages();
+})();
+</script><!-- INOVA Card --><div class="award-card shimmer" style="cursor:pointer;" onclick="openModal('inova')"><div class="award-image" style="position: relative; width: 100%; max-width: 300px; height: 150px; overflow: hidden; border-radius: 10px;"><img src="https://eduportfolio.github.io/NhatMinh/inova.png" alt="INOVA Image 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; transition: opacity 0.3s; opacity: 1;" class="award-photo" data-index="0"><img src="https://eduportfolio.github.io/NhatMinh/inova1.jpg" alt="INOVA Image 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; position: absolute; top: 0px; left: 0px; opacity: 0; transition: opacity 0.3s;" class="award-photo" data-index="1"></div><div class="award-year">2025</div><h3>Gold Medal - INOVA 2025</h3><p>ECO SMART RAIL TRANSIT - AI-based Railway Safety Monitoring System</p></div><script>
+(function () {
+const container = document.currentScript.previousElementSibling.querySelector('.award-image');
+const images = container.querySelectorAll('.award-photo');
+let current = 0;
+
+function updateImages() {
+images.forEach((img, idx) => {
+img.style.opacity = (idx === current) ? '1' : '0';
+});
+}
+
+function nextImage() {
+current = (current + 1) % images.length;
+updateImages();
+}
+
+setInterval(nextImage, 1500);
+updateImages();
+})();
+</script></div></section><!-- Research & Personal Product Section --><section id="research" class="research-section fade-in"><div class="research-container"><h2>Research &amp; Personal Projects</h2><p class="research-subtitle">Exploring innovation through research and hands-on engineering projects</p><div class="research-grid"><!-- Research Experience --><div class="research-category"><div class="category-header"><h3>Research Experience</h3></div><div class="research-items"><div class="research-item" onclick="openResearchModal('mlhotel')"><div class="research-item-image loaded"><img src="https://eduportfolio.github.io/NhatMinh/res.png" alt="Machine Learning Hotel Booking Research" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Crect width=%22600%22 height=%22400%22 fill=%22%23123%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22%2300ffff%22%3E%F0%9F%93%8A Machine Learning Research%3C/text%3E%3C/svg%3E'"><div class="research-item-overlay"></div></div><div class="research-item-content"><h4>Application of Machine Learning Algorithms in Prediction of Hotel Booking
+Cancellation</h4><p>Conducted comprehensive research applying machine learning techniques to predict
+hotel booking cancellations, contributing to operational efficiency in the
+hospitality industry.</p><div class="research-meta"><span class="meta-tag">Machine Learning</span><span class="meta-tag">Hospitality Industry</span><span class="meta-tag">Predictive Analytics</span></div><button class="view-details-btn">View Details →</button><br><a href="https://ijsrm.net/index.php/ijsrm/article/view/6631" target="_blank" rel="noopener noreferrer"><button class="view-details-btn">Read Publication</button></a></div></div></div></div><!-- Personal Product --><div class="research-category"><div class="category-header"><h3>Personal Projects</h3></div><div class="research-items"><div class="research-item" onclick="openResearchModal('traffic')"><div class="research-item-image loaded"><img src="https://eduportfolio.github.io/NhatMinh/pp.png" alt="AI Traffic Control System" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22%3E%3Crect width=%22600%22 height=%22400%22 fill=%22%23123%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22%2300ffff%22%3E%F0%9F%9A%A6 AI Traffic System%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%230080ff%22%3EEdge Computing%3C/text%3E%3C/svg%3E'"><div class="research-item-overlay"></div></div><div class="research-item-content"><h4>Real-Time Intelligent Traffic System Using AI Cameras and Edge Computing</h4><p>Developed an innovative smart traffic monitoring system integrating AI-powered
+cameras with edge processing for real-time traffic violation detection and
+congestion analysis.</p><div class="research-meta"><span class="meta-tag">AI &amp; Computer Vision</span><span class="meta-tag">Smart Cities</span><span class="meta-tag">Edge Computing</span></div><button class="view-details-btn">View Details →</button><br><a href="https://sites.google.com/view/nguyenminh212/projects/personal-project-ai-driven-traffic-light-control?authuser=0" target="_blank" rel="noopener noreferrer"><button class="view-details-btn">View Project</button></a></div></div></div></div></div></div></section><!-- Research Modals --><div class="research-modal" id="researchModalMlhotel"><div class="research-modal-content"><button class="research-modal-close" onclick="closeResearchModal('mlhotel')">×</button><h3>Application of Machine Learning Algorithms in Prediction of Hotel Booking Cancellation</h3><!-- Main Research Image --><div class="modal-image-showcase"><img src="https://eduportfolio.github.io/NhatMinh/res.png" alt="ML Hotel Research Overview" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22900%22 height=%22500%22%3E%3Cdefs%3E%3ClinearGradient id=%22grad1%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22%3E%3Cstop offset=%220%25%22 style=%22stop-color:%23001a33;stop-opacity:1%22 /%3E%3Cstop offset=%22100%25%22 style=%22stop-color:%23003366;stop-opacity:1%22 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%22900%22 height=%22500%22 fill=%22url(%23grad1)%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2236%22 fill=%22%2300ffff%22 font-weight=%22bold%22%3EMachine Learning Research%3C/text%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2224%22 fill=%22%2300ccff%22%3EHotel Booking Cancellation Prediction%3C/text%3E%3Ctext x=%2250%25%22 y=%2260%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%2399ccff%22%3E%F0%9F%93%8A Data Science %E2%80%A2 %F0%9F%A4%96 AI %E2%80%A2 %F0%9F%8F%A8 Hospitality%3C/text%3E%3C/svg%3E'"></div><h4>Research Overview</h4><p>This research project explores the application of various machine learning algorithms to predict
+hotel booking cancellations, addressing a critical challenge in the hospitality industry where
+cancellations significantly impact revenue management and operational planning.</p><h4>Key Research Objectives</h4><ul><li>Analyze historical booking data to identify patterns and factors contributing to cancellations
+</li><li>Compare multiple machine learning algorithms (Random Forest, XGBoost, Neural Networks) for
+prediction accuracy</li><li>Develop a robust predictive model that can be integrated into hotel management systems</li><li>Provide actionable insights for revenue management and overbooking strategies</li></ul><h4>Methodology</h4><ul><li>Data collection and preprocessing of hotel booking records</li><li>Feature engineering to extract relevant predictive variables</li><li>Implementation and comparison of supervised learning algorithms</li><li>Model evaluation using cross-validation and performance metrics</li><li>Analysis of feature importance to understand cancellation drivers</li></ul><h4>Impact &amp; Applications</h4><p>The research demonstrates how data-driven approaches can improve operational efficiency in
+hospitality, enabling hotels to optimize pricing strategies, manage inventory more effectively, and
+reduce revenue loss from last-minute cancellations.</p><p>The research demonstrates how data-driven approaches can improve operational efficiency in
+hospitality, enabling hotels to optimize pricing strategies, manage inventory more effectively, and
+reduce revenue loss from last-minute cancellations.</p><a href="https://ijsrm.net/index.php/ijsrm/article/view/6631" target="_blank" rel="noopener noreferrer"><button class="view-details-btn">Read Publication</button></a><div class="research-meta" style="margin-top: 2rem;"><span class="meta-tag">Academic Research</span><span class="meta-tag">Data Science</span><span class="meta-tag">Industry Application</span></div></div></div><div class="research-modal" id="researchModalTraffic"><div class="research-modal-content"><button class="research-modal-close" onclick="closeResearchModal('traffic')">×</button><h3>Real-Time Intelligent Traffic System Using AI Cameras and Edge Computing</h3><!-- Hero Image --><div class="modal-image-showcase"><img src="https://eduportfolio.github.io/NhatMinh/pp1.png" alt="AI Traffic Control System" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22900%22 height=%22500%22%3E%3Cdefs%3E%3ClinearGradient id=%22grad2%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22%3E%3Cstop offset=%220%25%22 style=%22stop-color:%23001a1a;stop-opacity:1%22 /%3E%3Cstop offset=%22100%25%22 style=%22stop-color:%23003333;stop-opacity:1%22 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%22900%22 height=%22500%22 fill=%22url(%23grad2)%22/%3E%3Ctext x=%2250%25%22 y=%2235%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2242%22 fill=%22%2300ffff%22 font-weight=%22bold%22%3E%F0%9F%9A%A6 AI Traffic Control%3C/text%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2228%22 fill=%22%2300ccff%22%3EReal-Time Intelligent System%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%2399ccff%22%3E%E2%9A%A1 Edge Computing %E2%80%A2 %F0%9F%8E%A5 Computer Vision %E2%80%A2 %F0%9F%A4%96 Machine Learning%3C/text%3E%3C/svg%3E'"></div><h4>Project Overview</h4><p>An AI-driven traffic light control system leveraging computer vision, machine learning, and edge
+computing to create adaptive, intelligent traffic management solutions for modern urban
+environments.</p><!-- System Architecture Diagram --><h4>System Architecture</h4><div class="modal-image-showcase"><img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22900%22 height=%22400%22%3E%3Crect width=%22900%22 height=%22400%22 fill=%22%23001a1a%22/%3E%3Ctext x=%2250%25%22 y=%2220%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2228%22 fill=%22%2300ffff%22 font-weight=%22bold%22%3ESystem Architecture%3C/text%3E%3Crect x=%2250%22 y=%22120%22 width=%22200%22 height=%2280%22 fill=%22none%22 stroke=%22%2300ffff%22 stroke-width=%222%22 rx=%2210%22/%3E%3Ctext x=%22150%22 y=%22165%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%2300ffff%22%3EInput Layer%3C/text%3E%3Crect x=%22350%22 y=%22120%22 width=%22200%22 height=%2280%22 fill=%22none%22 stroke=%22%2300ccff%22 stroke-width=%222%22 rx=%2210%22/%3E%3Ctext x=%22450%22 y=%22165%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%2300ccff%22%3EProcessing Layer%3C/text%3E%3Crect x=%22650%22 y=%22120%22 width=%22200%22 height=%2280%22 fill=%22none%22 stroke=%22%230099ff%22 stroke-width=%222%22 rx=%2210%22/%3E%3Ctext x=%22750%22 y=%22165%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%230099ff%22%3EControl Layer%3C/text%3E%3Cpath d=%22M 250 160 L 350 160%22 stroke=%22%2300ffff%22 stroke-width=%222%22 marker-end=%22url(%23arrowhead)%22/%3E%3Cpath d=%22M 550 160 L 650 160%22 stroke=%22%2300ffff%22 stroke-width=%222%22 marker-end=%22url(%23arrowhead)%22/%3E%3Ctext x=%2250%25%22 y=%2285%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2214%22 fill=%22%2399ccff%22%3EVideo Input %E2%86%92 YOLO Detection %E2%86%92 Adaptive Control%3C/text%3E%3C/svg%3E" alt="System Architecture Diagram" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22900%22 height=%22400%22%3E%3Crect width=%22900%22 height=%22400%22 fill=%22%23001a1a%22/%3E%3Ctext x=%2250%25%22 y=%2220%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2228%22 fill=%22%2300ffff%22 font-weight=%22bold%22%3ESystem Architecture%3C/text%3E%3Crect x=%2250%22 y=%22120%22 width=%22200%22 height=%2280%22 fill=%22none%22 stroke=%22%2300ffff%22 stroke-width=%222%22 rx=%2210%22/%3E%3Ctext x=%22150%22 y=%22165%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%2300ffff%22%3EInput Layer%3C/text%3E%3Crect x=%22350%22 y=%22120%22 width=%22200%22 height=%2280%22 fill=%22none%22 stroke=%22%2300ccff%22 stroke-width=%222%22 rx=%2210%22/%3E%3Ctext x=%22450%22 y=%22165%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%2300ccff%22%3EProcessing Layer%3C/text%3E%3Crect x=%22650%22 y=%22120%22 width=%22200%22 height=%2280%22 fill=%22none%22 stroke=%22%230099ff%22 stroke-width=%222%22 rx=%2210%22/%3E%3Ctext x=%22750%22 y=%22165%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%230099ff%22%3EControl Layer%3C/text%3E%3Cpath d=%22M 250 160 L 350 160%22 stroke=%22%2300ffff%22 stroke-width=%222%22 marker-end=%22url(%23arrowhead)%22/%3E%3Cpath d=%22M 550 160 L 650 160%22 stroke=%22%2300ffff%22 stroke-width=%222%22 marker-end=%22url(%23arrowhead)%22/%3E%3Ctext x=%2250%25%22 y=%2285%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2214%22 fill=%22%2399ccff%22%3EVideo Input %E2%86%92 YOLO Detection %E2%86%92 Adaptive Control%3C/text%3E%3C/svg%3E'"></div><p><strong>Input Layer:</strong> Video feeds from traffic cameras capture real-time intersection
+activity</p><p><strong>Processing Layer:</strong> Ultralytics YOLO for object detection, Python scripts on Google
+Colab for preprocessing and decision-making</p><p><strong>Control Layer:</strong> Dynamic traffic light signal adjustment based on real-time vehicle
+density and traffic patterns</p><h4>Key Features &amp; Capabilities</h4><ul><li><strong>Real-Time Vehicle Detection:</strong> Accurate recognition using Ultralytics YOLO models
+from live video streams</li><li><strong>Violation Detection:</strong> Automated identification of red-light running and lane
+misuse infractions</li><li><strong>Edge Computing Integration:</strong> Local video processing to reduce latency and ensure
+faster response times</li><li><strong>Adaptive Signal Control:</strong> Data-driven optimization of green/red light durations
+based on traffic density</li><li><strong>Congestion Pattern Analysis:</strong> Continuous monitoring to identify and respond to
+traffic flow patterns</li><li><strong>Scalability:</strong> System design supports integration with multiple intersections and
+IoT sensor networks</li></ul><h4>Technical Implementation</h4><ul><li>Programming: Python for algorithm development and system control</li><li>Computer Vision: Ultralytics YOLO for vehicle detection and classification</li><li>Development Environment: Google Colab for cloud-based model training and testing</li><li>Hardware Integration: Designed for compatibility with standard traffic control systems</li></ul><h4>Results &amp; Impact</h4><ul><li><strong>Efficiency:</strong> Reduced intersection congestion and shorter queue lengths in test
+scenarios</li><li><strong>Sustainability:</strong> Lower fuel consumption and vehicle emissions through smoother
+traffic flow</li><li><strong>Safety:</strong> Enhanced road safety through automated violation detection and
+reporting</li><li><strong>Innovation:</strong> Demonstrates affordable, open-source approach to intelligent
+transport solutions</li></ul><h4>Future Directions</h4><p>The system can be expanded to support emergency vehicle prioritization, pedestrian detection, and
+integration with broader smart city infrastructure for comprehensive urban mobility management.</p><p>The system can be expanded to support emergency vehicle prioritization, pedestrian detection, and
+integration with broader smart city infrastructure for comprehensive urban mobility management.</p><!-- Project Implementation Images --><h4>Implementation &amp; Results</h4><div class="modal-image-grid"><div class="modal-image-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/pp.png" alt="Vehicle Detection" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect width=%22300%22 height=%22200%22 fill=%22%23001a1a%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%2300ffff%22%3E%F0%9F%8E%A5 Detection%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2214%22 fill=%22%2399ccff%22%3EYOLO Vehicle Detection%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2212%22 fill=%22%2366aadd%22%3EReal-time Processing%3C/text%3E%3C/svg%3E'"><div class="modal-image-caption">Real-Time Vehicle Detection</div></div><div class="modal-image-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/pp2.png" alt="Violation Detection" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect width=%22300%22 height=%22200%22 fill=%22%23001a1a%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%2300ffff%22%3E%E2%9A%A0%EF%B8%8F Violations%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2214%22 fill=%22%2399ccff%22%3EAutomated Detection%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2212%22 fill=%22%2366aadd%22%3ERed Light %26 Lane Misuse%3C/text%3E%3C/svg%3E'"><div class="modal-image-caption">Traffic Violation Detection</div></div><div class="modal-image-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/pp1.png" alt="Traffic Flow Analysis" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect width=%22300%22 height=%22200%22 fill=%22%23001a1a%22/%3E%3Ctext x=%2250%25%22 y=%2240%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%2300ffff%22%3E%F0%9F%93%8A Analytics%3C/text%3E%3Ctext x=%2250%25%22 y=%2255%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2214%22 fill=%22%2399ccff%22%3ETraffic Flow Analysis%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2212%22 fill=%22%2366aadd%22%3ECongestion Patterns%3C/text%3E%3C/svg%3E'"><div class="modal-image-caption">Traffic Flow &amp; Congestion Analysis</div></div></div><a href="https://sites.google.com/view/nguyenminh212/projects/personal-project-ai-driven-traffic-light-control?authuser=0" target="_blank" rel="noopener" class="external-link-btn">
+View Project
+</a><div class="research-meta" style="margin-top: 2rem;"><span class="meta-tag">AI/ML</span><span class="meta-tag">Computer Vision</span><span class="meta-tag">Smart Cities</span><span class="meta-tag">Edge Computing</span></div></div></div><!-- Leadership Section --><section id="leadership" class="section fade-in"><h2>Leadership</h2><div class="leadership-new-grid"><!-- Ant Community Founder Card --><div class="leadership-new-card" onclick="openLeadershipModal('antfounder')"><div class="leadership-new-images"><div class="leadership-img-container"><img src="https://eduportfolio.github.io/NhatMinh/z6782786626099_900083c86f56bbc74017c80ece171784.jpg" alt="Ant Community 1"></div><div class="leadership-img-container"><img src="https://eduportfolio.github.io/NhatMinh/z6782791202663_d0155df3b6fe542e103e22ea4c8b3104.jpg" alt="Ant Community 2"></div><div class="leadership-img-container"><img src="https://eduportfolio.github.io/NhatMinh/z6782791203432_34ffba33e19fe9e649f4894a5fa3839f.jpg" alt="Ant Community 3"></div></div><div class="leadership-new-content"><h3>Founder - Ant Community: Hospital Cultural Program</h3><p>Founded and led a student-run initiative dedicated to bringing joy, comfort, and cultural
+enrichment to hospital patients through music and live performances. Oversaw all aspects of
+organization, from recruiting and training student performers to coordinating with hospital
+administration and scheduling regular visits.</p><div class="card-link-buttons" style="justify-content: flex-start; margin-top: 1rem;"><a href="https://www.facebook.com/benhviendongda.vn/posts/-bv%C4%91k-%C4%91%E1%BB%91ng-%C4%91a-t%E1%BB%95-ch%E1%BB%A9c-ch%C6%B0%C6%A1ng-tr%C3%ACnh-tri-%C3%A2n-ng%C6%B0%E1%BB%9Di-cao-tu%E1%BB%95i-h%C6%B0%E1%BB%9Fng-%E1%BB%A9ng-th%C3%A1ng-h%C3%A0nh-%C4%91%E1%BB%99/1049716040488654/" target="_blank" class="card-link-btn" onclick="event.stopPropagation();">
+Đống Đa Hospital
+</a><a href="https://www.facebook.com/benhviendakhoahuyenbavi/posts/ch%C6%B0%C6%A1ng-tr%C3%ACnh-xu%C3%A2n-y%C3%AAu-th%C6%B0%C6%A1ng-t%E1%BA%BFt-%C4%91ong-%C4%91%E1%BA%A7y-mang-%C3%A2m-nh%E1%BA%A1c-%C4%91%E1%BA%BFn-b%E1%BB%87nh-vi%E1%BB%87nh%C3%B2a-trong-kh/956007626629253/" target="_blank" class="card-link-btn" onclick="event.stopPropagation();">
+Ba Vì Hospital
+</a></div><div class="leadership-badge">2023 - Present</div></div></div><!-- Basketball Captain Card --><div class="leadership-new-card" onclick="openLeadershipModal('basketball')"><div class="leadership-new-images"><div class="leadership-img-container" style="background: rgba(128, 0, 255, 0.2); display: flex; align-items: center; justify-content: center; color: #8000ff;"><img src="https://eduportfolio.github.io/NhatMinh/tcb.jpg" alt="Basketball Image 1"></div><div class="leadership-img-container" style="background: rgba(128, 0, 255, 0.2); display: flex; align-items: center; justify-content: center; color: #8000ff;"><img src="https://eduportfolio.github.io/NhatMinh/tcb2.jpg" alt="Basketball Image 2"></div><div class="leadership-img-container" style="background: rgba(128, 0, 255, 0.2); display: flex; align-items: center; justify-content: center; color: #8000ff;"><img src="https://eduportfolio.github.io/NhatMinh/tcb1.jpg" alt="Basketball Image 2"></div></div><div class="leadership-new-content"><h3>Team Captain - Class Basketball Team</h3><p>Led the class basketball team to third place in the HUS High School for Gifted Students
+(Physics Division) Basketball Tournament. Demonstrated strong leadership, strategic
+thinking, and team coordination both on and off the court. Fostered team spirit and
+motivated teammates to achieve their best performance.</p><div class="leadership-badge">2025</div></div></div><!-- Robolads Card (new style) --><div class="leadership-new-card" onclick="openLeadershipModal('robolads')"><div class="leadership-new-images"><div class="leadership-img-container" style="background: rgba(0, 128, 255, 0.2); display: flex; align-items: center; justify-content: center; color: #0066ff;"><img src="https://eduportfolio.github.io/NhatMinh/hsgs.jpg" alt="Robolads Image 1"></div><div class="leadership-img-container" style="background: rgba(0, 128, 255, 0.2); display: flex; align-items: center; justify-content: center; color: #0066ff;"><img src="https://eduportfolio.github.io/NhatMinh/hsgs1.jpg" alt="Robolads Image 2"></div><div class="leadership-img-container" style="background: rgba(0, 128, 255, 0.2); display: flex; align-items: center; justify-content: center; color: #0066ff;"><img src="https://eduportfolio.github.io/NhatMinh/hsgs2.jpg" alt="Robolads Image 3"></div></div><div class="leadership-new-content"><h3>Head of Human Resources - HSGS Robolads</h3><p>Led recruitment, coordination, and member development for the school's premier robotics club,
+fostering teamwork and innovation among aspiring engineers and tech enthusiasts.</p><div class="leadership-badge">2024-2025</div></div></div><div class="leadership-new-card" onclick="openLeadershipModal('football_1')"><div class="leadership-new-images"><div class="leadership-img-container" style="background: rgba(0, 128, 255, 0.2); display: flex; align-items: center; justify-content: center; color: #0066ff;"><img src="https://eduportfolio.github.io/NhatMinh/NguyenVietNhatMinh_LDS%20(1).jpg" alt="football-1"></div><div class="leadership-img-container" style="background: rgba(0, 128, 255, 0.2); display: flex; align-items: center; justify-content: center; color: #0066ff;"><img src="https://eduportfolio.github.io/NhatMinh/NguyenVietNhatMinh_LDS%20(2).jpg" alt="football-2"></div><div class="leadership-img-container" style="background: rgba(0, 128, 255, 0.2); display: flex; align-items: center; justify-content: center; color: #0066ff;"><img src="https://eduportfolio.github.io/NhatMinh/NguyenVietNhatMinh_LDS%20(3).jpg" alt="football-3"></div></div><div class="leadership-new-content"><h3>Lead Volunteer Coach, “Summer Fun with Football 2024”</h3><p>Designed and delivered training sessions for youth participants.
+Mentored players on teamwork, discipline, and sportsmanship.
+Strengthened community bonds through inclusive sports activities.</p><div class="leadership-badge">2024</div></div></div></div></section><!-- Social Work & Activities Section --><section id="socialwork" class="section fade-in" style="background: linear-gradient(135deg, rgba(128, 0, 255, 0.03), rgba(0, 128, 255, 0.03));"><h2>Social Work &amp; Activities</h2><div class="leadership-content"><!-- Ant Founder Card --><div class="leadership-card" onclick="openLeadershipModal('antfounder')"><h3>Founder - Ant Community: Hospital Cultural Program</h3><p>Created and led a student-run initiative to bring music and performance to hospital patients,
+combining creativity with emotional support.</p><div class="scroll-images"><div class="scroll-image" style="padding:0; background:transparent; border:none;"><img src="https://eduportfolio.github.io/NhatMinh/z6782786626099_900083c86f56bbc74017c80ece171784.jpg" alt="Hospital Visit" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/z6782791202663_d0155df3b6fe542e103e22ea4c8b3104.jpg" alt="Performance" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/z6782791203432_34ffba33e19fe9e649f4894a5fa3839f.jpg" alt="Team Photo" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/z6782791285399_0cfb357b385fcad56de33a2ca4a34a67.jpg" alt="Certificate" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/c%E1%BB%99ng%20%C4%91%E1%BB%93ng%20ki%E1%BA%BFn%202.jpg" alt="Community" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782421677832_2079e1f6e8bf1d448b8d3d4606cf61bb.jpg" alt="Event" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782423306676_e36fd414f8c68b1f92229cf5845f9079.jpg" alt="Event" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div></div></div><!-- Ant Member Card --><div class="leadership-card" onclick="openLeadershipModal('antmember')"><h3>Participated in events of the specialized Physics stream</h3><p>Competed in the school music contest, earning 1st prize, and led the Physics stream as Head,
+coordinating academic events and fostering a collaborative learning environment</p><div class="scroll-images"><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782404219489_97c6392eafc2cb597e14752c838208fe%20(1).jpg" alt="Event 1" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782403378963_32c9681ca341b14dea5914f64fedf92a.jpg" alt="Event 2" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782468780685_7446280a783a7fb324bd7d61ac96b226.jpg" alt="Event 3" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6784612979165_c40390f3c6d7f4c5ece018815cae927b.jpg" alt="Event 4" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div></div></div><!-- Cleanup Card --><div class="leadership-card" onclick="openLeadershipModal('cleanup')"><h3>District-Level Post-Storm Tree Cleanup</h3><p>Participated in environmental recovery efforts, contributing to local resilience and community
+restoration.</p><div class="scroll-images"><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782406257416_8921850b74f684f82112f8dfa433b106.jpg" alt="Cleanup 1" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782467885339_81eadb5b2552372187ec9c0f82f4991d.jpg" alt="Cleanup 2" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/c%E1%BB%99ng%20%C4%91%E1%BB%93ng%20ki%E1%BA%BFn1.jpg" alt="Team Work" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div></div></div><!-- Exam Support Card --><div class="leadership-card" onclick="openLeadershipModal('examsupport')"><h3>Volunteer - Exam Support Program at HSGS</h3><p>Provided logistical and motivational support for students during major school examinations.</p><div class="scroll-images"><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782404837815_07077304448c4fceea6555f7ef3a4068.jpg" alt="Support 1" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782402929530_1696729680cddd427f3af19e59f5b5ea.jpg" alt="Support 2" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div></div></div><!-- Van Ho Card --><div class="leadership-card" onclick="openLeadershipModal('vanho')"><h3>Teaching Volunteer - Vân Hồ Program</h3><p>Traveled to rural areas to deliver educational workshops, helping to bridge the gap in access to
+quality education.</p><div class="scroll-images"><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/z6912931371874_a162eba43a70b2eee47746558ef259a5.jpg" alt="Teaching 1" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/z6912931523592_78833e7fc0c375f32f145e55645502b4.jpg" alt="Teaching 2" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div></div></div><!-- SOS Village Card --><div class="leadership-card" onclick="openLeadershipModal('sosvillage')"><div class="award-year">August 2025</div><h3>Volunteer Work at SOS Children's Village</h3><p>Engaged with children at SOS Children's Village, providing companionship, educational support,
+and recreational activities.</p><div class="scroll-images"><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/sos3.jpg" alt="Thumb 1" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/sos1.jpg" alt="Thumb 2" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/sos2.png" alt="Thumb 3" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/sos4.jpg" alt="Thumb 4" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/sos.jpg" alt="Thumb 5" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/sos5.jpg" alt="Thumb 6" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div></div></div><!-- Debating Card --><div class="leadership-card" onclick="openLeadershipModal('debating')"><div class="award-year">July 2025</div><h3>Volunteer at Asian Schools Debating Championship</h3><p>Supported the organization and coordination of a regional debating championship.</p><div class="scroll-images"><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/ASV.jpg" alt="Thumb 1" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div></div></div><!-- Basketball Card --><div class="leadership-card" onclick="openLeadershipModal('basketball')"><div class="award-year">2025</div><h3>Team Captain - Basketball Tournament</h3><p>Led team to 3rd place in Basketball Tournament. Demonstrated leadership, teamwork, and athletic
+excellence.</p><div class="scroll-images"><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/tcb.jpg" alt="Thumb 1" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/tcb1.jpg" alt="Thumb 2" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/tcb2.jpg" alt="Thumb 3" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div></div></div><!-- Robolads Card --><div class="leadership-card" onclick="openLeadershipModal('robolads')"><div class="award-year">2024-2025</div><h3>Head of Human Resources - HSGS Robolads</h3><p>Managed recruitment, team coordination, and member development for the school's robotics club.
+</p><div class="scroll-images"><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/hsgs.jpg" alt="Thumb 1" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/hsgs1.jpg" alt="Thumb 2" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div><div class="scroll-image"><img src="https://eduportfolio.github.io/NhatMinh/hsgs2.jpg" alt="Thumb 3" style="width:100%; height: 100%; object-fit: cover; border-radius: 5px; display:block;"></div></div></div></div></section><!-- Skills & Talents Section --><section id="skills" class="section fade-in" style="background: linear-gradient(135deg, rgba(0, 128, 255, 0.03), rgba(128, 0, 255, 0.03)); padding: 6rem 0;"><h2>Skills &amp; Talents</h2><div class="skills-container" style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;"><div class="skills-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; max-width: 1200px; margin-left: auto; margin-right: auto;"><!-- Technical Creativity --><div class="skill-card" style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.08), rgba(0, 128, 255, 0.08)); border-radius: 20px; padding: 1.5rem; border: 2px solid rgba(0, 255, 255, 0.3); transition: all 0.4s ease; position: relative; overflow: hidden; cursor: pointer;"><div class="skill-icon-geometry" style="width: 70px; height: 70px; margin: 0 auto 1rem; position: relative;"><!-- Rotating geometric shape --><div style="position: absolute; width: 100%; height: 100%; border: 3px solid #00ffff; border-radius: 20%; transform: rotate(45deg); animation: rotateShape 8s linear infinite;"></div><div style="position: absolute; width: 70%; height: 70%; top: 15%; left: 15%; border: 3px solid #0080ff; border-radius: 50%; animation: rotateShape 6s linear infinite reverse;"></div><div style="position: absolute; width: 40%; height: 40%; top: 30%; left: 30%; background: linear-gradient(135deg, #00ffff, #0080ff); border-radius: 30%; animation: pulse 2s ease-in-out infinite;"></div></div><h3 style="color: #00ffff; text-align: center; margin-bottom: 0.8rem; font-size: 1.2rem; font-weight: 700;">
+Technical Creativity</h3><p style="color: #cccccc; text-align: center; line-height: 1.6; font-size: 0.95rem;">Enjoys
+building and experimenting with hardware systems; often combines engineering logic with
+creative problem-solving.</p><div class="skill-particles" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden;"><div style="position: absolute; width: 4px; height: 4px; background: #00ffff; border-radius: 50%; top: 20%; left: 10%; animation: floatParticle 4s ease-in-out infinite;"></div><div style="position: absolute; width: 4px; height: 4px; background: #0080ff; border-radius: 50%; top: 60%; right: 15%; animation: floatParticle 5s ease-in-out infinite 1s;"></div></div></div><!-- Guitar Skills --><div class="skill-card" style="background: linear-gradient(135deg, rgba(128, 0, 255, 0.08), rgba(255, 0, 128, 0.08)); border-radius: 20px; padding: 1.5rem; border: 2px solid rgba(128, 0, 255, 0.3); transition: all 0.4s ease; position: relative; overflow: hidden; cursor: pointer;"><div class="skill-icon-geometry" style="width: 70px; height: 70px; margin: 0 auto 1rem; position: relative;"><!-- Sound wave visualization --><div style="position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: space-around; gap: 8px;"><div style="width: 8px; background: linear-gradient(180deg, #8000ff, #ff0080); border-radius: 10px; animation: soundWave 1s ease-in-out infinite; height: 40%;"></div><div style="width: 8px; background: linear-gradient(180deg, #8000ff, #ff0080); border-radius: 10px; animation: soundWave 1s ease-in-out infinite 0.1s; height: 70%;"></div><div style="width: 8px; background: linear-gradient(180deg, #8000ff, #ff0080); border-radius: 10px; animation: soundWave 1s ease-in-out infinite 0.2s; height: 55%;"></div><div style="width: 8px; background: linear-gradient(180deg, #8000ff, #ff0080); border-radius: 10px; animation: soundWave 1s ease-in-out infinite 0.3s; height: 85%;"></div><div style="width: 8px; background: linear-gradient(180deg, #8000ff, #ff0080); border-radius: 10px; animation: soundWave 1s ease-in-out infinite 0.4s; height: 60%;"></div></div></div><h3 style="color: #8000ff; text-align: center; margin-bottom: 0.8rem; font-size: 1.2rem; font-weight: 700;">
+Musical Rhythm</h3><p style="color: #cccccc; text-align: center; line-height: 1.6; font-size: 0.95rem;">Uses guitar
+and music as a way to relax and stay focused; believes musical rhythm enhances pattern
+recognition and design thinking.</p></div><!-- Hands-on Prototyping --><div class="skill-card" style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.08), rgba(0, 128, 255, 0.08)); border-radius: 20px; padding: 1.5rem; border: 2px solid rgba(0, 255, 255, 0.3); transition: all 0.4s ease; position: relative; overflow: hidden; cursor: pointer;"><div class="skill-icon-geometry" style="width: 70px; height: 70px; margin: 0 auto 1rem; position: relative;"><!-- Building blocks --><div style="position: absolute; width: 100%; height: 100%; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); gap: 6px; padding: 10px;"><div style="background: rgba(0, 255, 128, 0.6); border-radius: 8px; animation: buildBlock 2s ease-in-out infinite; animation-delay: 0s;"></div><div style="background: rgba(0, 200, 255, 0.6); border-radius: 8px; animation: buildBlock 2s ease-in-out infinite; animation-delay: 0.2s;"></div><div style="background: rgba(0, 255, 128, 0.6); border-radius: 8px; animation: buildBlock 2s ease-in-out infinite; animation-delay: 0.4s;"></div><div style="background: rgba(0, 200, 255, 0.6); border-radius: 8px; animation: buildBlock 2s ease-in-out infinite; animation-delay: 0.6s;"></div><div style="background: rgba(0, 255, 200, 0.8); border-radius: 50%; animation: pulse 2s ease-in-out infinite;"></div><div style="background: rgba(0, 200, 255, 0.6); border-radius: 8px; animation: buildBlock 2s ease-in-out infinite; animation-delay: 0.8s;"></div><div style="background: rgba(0, 255, 128, 0.6); border-radius: 8px; animation: buildBlock 2s ease-in-out infinite; animation-delay: 1s;"></div><div style="background: rgba(0, 200, 255, 0.6); border-radius: 8px; animation: buildBlock 2s ease-in-out infinite; animation-delay: 1.2s;"></div><div style="background: rgba(0, 255, 128, 0.6); border-radius: 8px; animation: buildBlock 2s ease-in-out infinite; animation-delay: 1.4s;"></div></div></div><h3 style="color: #00ff80; text-align: center; margin-bottom: 0.8rem; font-size: 1.2rem; font-weight: 700;">
+Hands-on Prototyping</h3><p style="color: #cccccc; text-align: center; line-height: 1.6; font-size: 0.95rem;">Passionate
+about turning ideas into working models using microcontrollers, sensors, and basic
+fabrication tools.</p></div><!-- Athletic Versatility --><div class="skill-card" style="background: linear-gradient(135deg, rgba(0, 255, 255, 0.08), rgba(0, 128, 255, 0.08)); border-radius: 20px; padding: 1.5rem; border: 2px solid rgba(0, 255, 255, 0.3); transition: all 0.4s ease; position: relative; overflow: hidden; cursor: pointer;"><div class="skill-icon-geometry" style="width: 70px; height: 70px; margin: 0 auto 1rem; position: relative;"><!-- Dynamic movement paths --><svg width="100" height="100" style="position: absolute;"><circle cx="50" cy="50" r="35" fill="none" stroke="#ff8000" stroke-width="3" stroke-dasharray="220" stroke-dashoffset="0" style="animation: drawCircle 3s ease-in-out infinite;"><animate attributeName="stroke-dashoffset" values="220;0;220" dur="3s" repeatCount="indefinite"></animate></circle><circle cx="50" cy="50" r="20" fill="none" stroke="#ff0080" stroke-width="3" stroke-dasharray="125" stroke-dashoffset="0" style="animation: drawCircle 2s ease-in-out infinite 0.5s;"><animate attributeName="stroke-dashoffset" values="125;0;125" dur="2s" repeatCount="indefinite"></animate></circle><circle cx="50" cy="50" r="8" fill="url(#athleticGradient)" style="animation: pulse 1.5s ease-in-out infinite;"></circle><defs><linearGradient id="athleticGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ff8000;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ff0080;stop-opacity:1"></stop></linearGradient></defs></svg></div><h3 style="color: #ff8000; text-align: center; margin-bottom: 0.8rem; font-size: 1.2rem; font-weight: 700;">
+Athletic Versatility</h3><p style="color: #cccccc; text-align: center; line-height: 1.6; font-size: 0.95rem;">Plays
+basketball and football regularly; values teamwork, quick decision-making, and strategic
+thinking developed through sports.</p></div></div></div></section><style>
+/* Skills Section Animations */
+@keyframes rotateShape {
+0% {
+transform: rotate(0deg);
+}
+
+100% {
+transform: rotate(360deg);
+}
+}
+
+@keyframes pulse {
+
+0%,
+100% {
+transform: scale(1);
+opacity: 0.8;
+}
+
+50% {
+transform: scale(1.2);
+opacity: 1;
+}
+}
+
+@keyframes floatParticle {
+
+0%,
+100% {
+transform: translateY(0) translateX(0);
+opacity: 0.3;
+}
+
+50% {
+transform: translateY(-20px) translateX(10px);
+opacity: 1;
+}
+}
+
+@keyframes soundWave {
+
+0%,
+100% {
+height: 40%;
+}
+
+50% {
+height: 90%;
+}
+}
+
+@keyframes buildBlock {
+
+0%,
+100% {
+transform: scale(1);
+opacity: 0.6;
+}
+
+50% {
+transform: scale(1.15);
+opacity: 1;
+}
+}
+
+@keyframes drawCircle {
+0% {
+stroke-dashoffset: 220;
+}
+
+50% {
+stroke-dashoffset: 0;
+}
+
+100% {
+stroke-dashoffset: -220;
+}
+}
+
+/* Skill Card Hover Effects */
+.skill-card:hover {
+transform: translateY(-10px) scale(1.02);
+box-shadow: 0 20px 50px rgba(0, 255, 255, 0.3);
+border-color: rgba(0, 255, 255, 0.6);
+}
+
+.skill-card:nth-child(2):hover {
+box-shadow: 0 20px 50px rgba(128, 0, 255, 0.3);
+border-color: rgba(128, 0, 255, 0.6);
+}
+
+.skill-card:nth-child(3):hover {
+box-shadow: 0 20px 50px rgba(0, 255, 128, 0.3);
+border-color: rgba(0, 255, 128, 0.6);
+}
+
+.skill-card:nth-child(4):hover {
+box-shadow: 0 20px 50px rgba(255, 128, 0, 0.3);
+border-color: rgba(255, 128, 0, 0.6);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+.skills-grid {
+grid-template-columns: repeat(2, 1fr) !important;
+gap: 1rem !important;
+}
+
+.skill-card {
+padding: 1.2rem !important;
+}
+
+.skill-icon-geometry {
+width: 60px !important;
+height: 60px !important;
+}
+}
+
+@media (max-width: 480px) {
+.skills-grid {
+grid-template-columns: 1fr !important;
+}
+}
+
+.skill-card {
+padding: 1.8rem !important;
+}
+
+.skill-icon-geometry {
+width: 80px !important;
+height: 80px !important;
+}
+}
+</style><footer id="contact"><div class="footer-particles" id="footerParticles"></div><div class="footer-content"><div class="footer-left"><h3>Let's Connect</h3><p>I'm always open to discussing new opportunities, collaborations, or simply connecting with
+like-minded individuals passionate about engineering and community impact.</p><p style="margin-top: 1rem; color: #00ffff; font-weight: 600;">Feel free to reach out!</p></div><div class="footer-right"><div class="footer-links"><a class="footer-link" href="mailto:nguyenminh212@gmail.com">
+Email Me
+</a><a class="footer-link" href="https://docs.google.com/document/d/1NzBm90hpT8f76HY6A38gRs4Aoxh8i9w5gELokvEip8Y/edit?usp=sharing" target="_blank" rel="noopener">
+View My CV
+</a></div></div></div><div class="footer-bottom"><p>© 2025 Nguyen Viet Nhat Minh. All rights reserved.</p><p style="margin-top: 0.5rem; font-size: 0.85rem;">Designed with passion for engineering and community
+impact.</p></div></footer><!-- Modal Popups --><div class="modal-overlay" id="modalAijam"><div class="modal-content"><button class="modal-close" onclick="closeModal('aijam')">×</button><button class="modal-nav prev" onclick="navigateAwardModal(-1)">‹</button><button class="modal-nav next" onclick="navigateAwardModal(1)">›</button><div class="modal-header"><h3>AI-JAM 2025 Competition</h3><div class="modal-year">2025 - Gold Medal</div></div><div class="modal-description"><h4 style="color: #00ffff; margin-bottom: 1rem;">Project: Stroke Alert &amp; Rehabilitation Wearable
+Device Through Biosensors And AI</h4><p>This innovative wearable device utilizes advanced biosensors and artificial intelligence to
+detect early signs of stroke and assist in rehabilitation processes. The project combines
+cutting-edge technology with healthcare needs to provide real-time monitoring and alerts for
+stroke patients.</p><p style="margin-top: 1rem;">Key features include:</p><ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;"><li>Real-time biosensor monitoring of vital signs</li><li>AI-powered stroke prediction algorithms</li><li>Immediate alert system for caregivers and medical professionals</li><li>Rehabilitation tracking and progress monitoring</li><li>User-friendly wearable design for continuous use</li></ul></div><div class="modal-gallery"><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/aij1.png" alt="AI-JAM Project 1" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect width=%22300%22 height=%22200%22 fill=%22%23222%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%2300ffff%22%3EImage 1%3C/text%3E%3C/svg%3E'"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/aij.jpg" alt="AI-JAM Project 2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect width=%22300%22 height=%22200%22 fill=%22%23222%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%2300ffff%22%3EImage 2%3C/text%3E%3C/svg%3E'"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/aij2.png" alt="AI-JAM Project 3" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect width=%22300%22 height=%22200%22 fill=%22%23222%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%2300ffff%22%3EImage 3%3C/text%3E%3C/svg%3E'"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/aij3.png" alt="AI-JAM Project 4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect width=%22300%22 height=%22200%22 fill=%22%23222%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%2300ffff%22%3EImage 4%3C/text%3E%3C/svg%3E'"></div></div></div></div><div class="modal-overlay" id="modalInova"><div class="modal-content"><button class="modal-close" onclick="closeModal('inova')">×</button><button class="modal-nav prev" onclick="navigateAwardModal(-1)">‹</button><button class="modal-nav next" onclick="navigateAwardModal(1)">›</button><div class="modal-header"><h3>INOVA 2025 - 49th International Invention Show</h3><div class="modal-year">2025 - Gold Medal</div></div><div class="modal-description"><h4 style="color: #00ffff; margin-bottom: 1rem;">Project: ECO SMART RAIL TRANSIT - AI-based Railway
+Safety Monitoring System</h4><p>An intelligent railway safety monitoring system leveraging artificial intelligence and IoT
+technology to enhance safety, reduce accidents, and optimize railway operations. This system
+provides real-time monitoring of railway infrastructure and environmental conditions.</p><p style="margin-top: 1rem;">Key features include:</p><ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;"><li>AI-powered visual inspection of railway tracks and infrastructure</li><li>Real-time detection of obstacles and hazards</li><li>Predictive maintenance algorithms for equipment failure prevention</li><li>Environmental monitoring for weather-related risks</li><li>Automated alert system for railway operators</li><li>Energy-efficient and eco-friendly design</li></ul></div><div class="modal-gallery"><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/inova.png" alt="INOVA Project 1" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect width=%22300%22 height=%22200%22 fill=%22%23222%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%2300ffff%22%3EImage 1%3C/text%3E%3C/svg%3E'"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/inova1.jpg" alt="INOVA Project 2" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect width=%22300%22 height=%22200%22 fill=%22%23222%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2218%22 fill=%22%2300ffff%22%3EImage 2%3C/text%3E%3C/svg%3E'"></div></div></div></div><!-- Award Modals for IPITEx, ASMO, Green Voice, HSGS --><div class="modal-overlay" id="modalIpitex"><div class="modal-content"><button class="modal-close" onclick="closeAwardModal('ipitex')">×</button><button class="modal-nav prev" onclick="navigateAwardModal(-1)">‹</button><button class="modal-nav next" onclick="navigateAwardModal(1)">›</button><div class="modal-header"><h3>Gold Medal - IPITEx Biochemistry Category</h3><div class="modal-year">2024</div></div><div class="modal-description"><h4 style="color: #00ffff; margin-bottom: 1rem;">Project: Chemical-Based Water Filtration System
+</h4><p style="text-align: justify;">Developed an innovative chemical-based solution for filtering
+polluted river water. The project was recognized for its environmental impact and practical
+application in addressing water pollution challenges.</p><p style="margin-top: 1rem; text-align: justify;">This project demonstrates the intersection of
+chemistry and environmental engineering, providing a sustainable approach to water purification
+that can be implemented in communities affected by water pollution.</p><p style="margin-top: 1rem;"><strong>Key Features:</strong></p><ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;"><li>Cost-effective filtration using locally available materials</li><li>Removal of heavy metals and organic pollutants</li><li>Scalable design suitable for community implementation</li><li>Environmental sustainability focus</li></ul></div><div class="modal-gallery"><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/ipitex1.jpg" alt="IPITEx Gold Medal Certificate"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/ipitex2.jpg" alt="IPITEx Project Presentation"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/z6782421039624_2f86e0b90beaa68ebfe2c1b84c02d034.jpg" alt="IPITEx Award Ceremony"></div></div></div></div><div class="modal-overlay" id="modalAsmo"><div class="modal-content"><button class="modal-close" onclick="closeAwardModal('asmo')">×</button><button class="modal-nav prev" onclick="navigateAwardModal(-1)">‹</button><button class="modal-nav next" onclick="navigateAwardModal(1)">›</button><div class="modal-header"><h3>ASMO National Round</h3><div class="modal-year">2024</div></div><div class="modal-description"><h4 style="color: #00ffff; margin-bottom: 1rem;">Gold Medal in Mathematics, Silver Medal in English
+</h4><p style="text-align: justify;">Achieved top results in the national-level Asian Science and
+Mathematics Olympiad (ASMO), demonstrating both analytical and linguistic strengths.</p><p style="margin-top: 1rem; text-align: justify;">This accomplishment reflects strong performance in
+competitive academic environments and showcases proficiency across multiple disciplines
+including:</p><ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;"><li>Advanced mathematical problem-solving</li><li>Critical thinking and logical reasoning</li><li>English language proficiency at competitive level</li><li>Performance under pressure in timed examinations</li></ul></div><div class="modal-gallery"><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/asmo.jpg" alt="ASMO Medal"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/z6782419843679_550e3be71db57e1e8dd885c626c16d63.jpg" alt="ASMO Competition"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/z6782418012545_b89c1a0bcfcf64f498add8c917a228a7.jpg" alt="ASMO Award Ceremony"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/z6782412230287_6592d4ae21a16784a23b831639274749.jpg" alt="ASMO Event"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/z6782410088184_754fe45818daef9cf932bdd387fdfedf.jpg" alt="ASMO Team Photo"></div></div></div></div><div class="modal-overlay" id="modalGreenvoice"><div class="modal-content"><button class="modal-close" onclick="closeAwardModal('greenvoice')">×</button><button class="modal-nav prev" onclick="navigateAwardModal(-1)">‹</button><button class="modal-nav next" onclick="navigateAwardModal(1)">›</button><div class="modal-header"><h3>Encouragement Award - Green Voice Competition</h3><div class="modal-year">2025</div></div><div class="modal-description"><h4 style="color: #00ffff; margin-bottom: 1rem;">Community-Centered Environmental Awareness
+Initiative</h4><p style="text-align: justify;">Participated in the Green Voice Competition, a community-centered
+contest promoting environmental awareness and creative expression through various forms of media
+and communication.</p><p style="margin-top: 1rem; text-align: justify;">This experience reinforced the importance of
+public engagement in environmental issues and demonstrated the power of youth voices in driving
+sustainable change.</p><p style="margin-top: 1rem; text-align: justify;"><strong>Competition Highlights:</strong></p><ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;"><li>Creative communication on environmental topics</li><li>Community engagement and awareness building</li><li>Youth leadership in sustainability initiatives</li><li>Multimedia presentation skills development</li></ul></div><div class="modal-gallery"><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/ti%E1%BA%BFng%20n%C3%B3i%20xanh.jpg" alt="Green Voice Award"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/ti%E1%BA%BFng%20n%C3%B3i%20xanh%202.jpg" alt="Green Voice Event"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/z6782431132833_cf77c9e05402acb100b00b94db063d67.jpg" alt="Green Voice Certificate"></div></div><div class="card-link-buttons"><a href="https://www.facebook.com/TiengnoiXanh/posts/-verdant-sun-%C3%BD-t%C6%B0%E1%BB%9Fng-extracting-sio2-from-rice-husk-ash-to-make-semiconductors-c/122190522752085425/" target="_blank" class="card-link-btn" onclick="event.stopPropagation();">
+View Project
+</a></div></div></div><div class="modal-overlay" id="modalHsgsperformance"><div class="modal-content"><button class="modal-close" onclick="closeAwardModal('hsgsperformance')">×</button><button class="modal-nav prev" onclick="navigateAwardModal(-1)">‹</button><button class="modal-nav next" onclick="navigateAwardModal(1)">›</button><div class="modal-header"><h3>Special Prize - Cultural Performance Competition</h3><div class="modal-year">2025</div></div><div class="modal-description"><h4 style="color: #00ffff; margin-bottom: 1rem;">HSGS Anniversary Celebration</h4><p style="text-align: justify;">Honored for excellence in team performance and event coordination at
+the HUS High School for Gifted Students' Anniversary celebration.</p><p style="margin-top: 1rem; text-align: justify;">This achievement highlights leadership in cultural
+activities, teamwork, and the ability to create memorable experiences for the school community
+through creative performance.</p><p style="margin-top: 1rem; text-align: justify;"><strong>Performance Achievements:</strong></p><ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.8;"><li>Team coordination and leadership</li><li>Creative performance design and execution</li><li>Event planning and logistics management</li><li>Community engagement and cultural enrichment</li><li>Collaborative creativity with peers</li></ul></div><div class="modal-gallery"><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6798047878298_faefdef7a2ad9e00930498a26dffabc7.jpg" alt="HSGS Performance 1"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6798047890838_1db1a2414374a494bdce509c3763e23f.jpg" alt="HSGS Performance 2"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6798048028837_14642991c9976a206094413abe84e168.jpg" alt="HSGS Performance 3"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6798047902150_3466e1c1c5dbc3e5cc97b008f03f46a0.jpg" alt="HSGS Performance 4"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6798047881520_09b5f1236f7abfe991bed654179e8e0c.jpg" alt="HSGS Performance 5"></div><div class="modal-gallery-item" onclick="openLightbox(this)"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782468780685_7446280a783a7fb324bd7d61ac96b226.jpg" alt="HSGS Performance 6"></div></div></div></div><!-- Leadership Modals --><div class="leadership-modal" id="leadershipModalAntfounder"><div class="leadership-modal-content"><div class="leadership-modal-header"><button class="leadership-modal-close" onclick="closeLeadershipModal('antfounder')">×</button><h3>Founder - Ant Community: Hospital Cultural Program</h3><div class="leadership-modal-year">2023-Present</div></div><div class="leadership-modal-body"><div class="leadership-gallery-main" id="galleryAntfounder"><img src="https://eduportfolio.github.io/NhatMinh/z6782786626099_900083c86f56bbc74017c80ece171784.jpg" alt="Hospital Visit" class="active"><img src="https://eduportfolio.github.io/NhatMinh/z6782791202663_d0155df3b6fe542e103e22ea4c8b3104.jpg" alt="Performance"><img src="https://eduportfolio.github.io/NhatMinh/z6782791203432_34ffba33e19fe9e649f4894a5fa3839f.jpg" alt="Team Photo"><img src="https://eduportfolio.github.io/NhatMinh/z6782791285399_0cfb357b385fcad56de33a2ca4a34a67.jpg" alt="Certificate"><img src="https://eduportfolio.github.io/NhatMinh/c%E1%BB%99ng%20%C4%91%E1%BB%93ng%20ki%E1%BA%BFn%202.jpg" alt="Community"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782421677832_2079e1f6e8bf1d448b8d3d4606cf61bb.jpg" alt="Event"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782423306676_e36fd414f8c68b1f92229cf5845f9079.jpg" alt="Event"><button class="gallery-nav-btn prev" onclick="changeLeadershipImage('antfounder', -1)">‹</button><button class="gallery-nav-btn next" onclick="changeLeadershipImage('antfounder', 1)">›</button><div class="image-counter"><span class="current-img">1</span> / <span class="total-img">6</span></div></div><div class="leadership-gallery-thumbs" id="thumbsAntfounder"><div class="gallery-thumb active" onclick="setLeadershipImage('antfounder', 0)"><img src="https://eduportfolio.github.io/NhatMinh/z6782786626099_900083c86f56bbc74017c80ece171784.jpg" alt="Thumb 1"></div><div class="gallery-thumb" onclick="setLeadershipImage('antfounder', 1)"><img src="https://eduportfolio.github.io/NhatMinh/z6782791202663_d0155df3b6fe542e103e22ea4c8b3104.jpg" alt="Thumb 2"></div><div class="gallery-thumb" onclick="setLeadershipImage('antfounder', 2)"><img src="https://eduportfolio.github.io/NhatMinh/z6782791203432_34ffba33e19fe9e649f4894a5fa3839f.jpg" alt="Thumb 3"></div><div class="gallery-thumb" onclick="setLeadershipImage('antfounder', 3)"><img src="https://eduportfolio.github.io/NhatMinh/z6782791285399_0cfb357b385fcad56de33a2ca4a34a67.jpg" alt="Thumb 4"></div><div class="gallery-thumb" onclick="setLeadershipImage('antfounder', 4)"><img src="https://eduportfolio.github.io/NhatMinh/c%E1%BB%99ng%20%C4%91%E1%BB%93ng%20ki%E1%BA%BFn%202.jpg" alt="Thumb 5"></div><div class="gallery-thumb" onclick="setLeadershipImage('antfounder', 5)"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782421677832_2079e1f6e8bf1d448b8d3d4606cf61bb.jpg" alt="Thumb 6"></div></div><div class="leadership-modal-description"><p>As the founder of Ant Community, I initiated a student-led program dedicated to bringing joy,
+comfort, and cultural enrichment to hospital patients through music and live performances.
+</p><p>This initiative was born from recognizing the healing power of art and the importance of
+emotional support in healthcare settings. I oversaw all aspects of organization, from
+recruiting and training student performers to coordinating with hospital administration and
+scheduling regular visits.</p><p>The program has successfully brought smiles to countless patients, demonstrated the impact of
+youth-led community service, and fostered a culture of compassion among student
+participants.</p><div class="card-link-buttons" style="justify-content: flex-start; margin-top: 1.5rem;"><a href="https://www.facebook.com/benhviendongda.vn/posts/-bv%C4%91k-%C4%91%E1%BB%91ng-%C4%91a-t%E1%BB%95-ch%E1%BB%A9c-ch%C6%B0%C6%A1ng-tr%C3%ACnh-tri-%C3%A2n-ng%C6%B0%E1%BB%9Di-cao-tu%E1%BB%95i-h%C6%B0%E1%BB%9Fng-%E1%BB%A9ng-th%C3%A1ng-h%C3%A0nh-%C4%91%E1%BB%99/1049716040488654/" target="_blank" class="card-link-btn" onclick="event.stopPropagation();">
+Đông Đa Hospital
+</a><a href="https://www.facebook.com/benhviendakhoahuyenbavi/posts/ch%C6%B0%C6%A1ng-tr%C3%ACnh-xu%C3%A2n-y%C3%AAu-th%C6%B0%C6%A1ng-t%E1%BA%BFt-%C4%91ong-%C4%91%E1%BA%A7y-mang-%C3%A2m-nh%E1%BA%A1c-%C4%91%E1%BA%BFn-b%E1%BB%87nh-vi%E1%BB%87nh%C3%B2a-trong-kh/956007626629253/" target="_blank" class="card-link-btn" onclick="event.stopPropagation();">
+Ba Vì Hospital
+</a></div></div></div></div></div><div class="leadership-modal" id="leadershipModalAntmember"><div class="leadership-modal-content"><div class="leadership-modal-header"><button class="leadership-modal-close" onclick="closeLeadershipModal('antmember')">×</button><h3>Participated in events of the specialized Physics stream</h3><div class="leadership-modal-year">2023-Present</div></div><div class="leadership-modal-body"><div class="leadership-gallery-main" id="galleryAntmember"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782404219489_97c6392eafc2cb597e14752c838208fe%20(1).jpg" alt="Event 1" class="active"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782403378963_32c9681ca341b14dea5914f64fedf92a.jpg" alt="Event 2"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782468780685_7446280a783a7fb324bd7d61ac96b226.jpg" alt="Event 3"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6784612979165_c40390f3c6d7f4c5ece018815cae927b.jpg" alt="Event 4"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782423306676_e36fd414f8c68b1f92229cf5845f9079.jpg" alt="Event 5"><button class="gallery-nav-btn prev" onclick="changeLeadershipImage('antmember', -1)">‹</button><button class="gallery-nav-btn next" onclick="changeLeadershipImage('antmember', 1)">›</button><div class="image-counter"><span class="current-img">1</span> / <span class="total-img">5</span></div></div><div class="leadership-gallery-thumbs" id="thumbsAntmember"><div class="gallery-thumb active" onclick="setLeadershipImage('antmember', 0)"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782404219489_97c6392eafc2cb597e14752c838208fe%20(1).jpg" alt="Thumb 1"></div><div class="gallery-thumb" onclick="setLeadershipImage('antmember', 1)"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782403378963_32c9681ca341b14dea5914f64fedf92a.jpg" alt="Thumb 2"></div><div class="gallery-thumb" onclick="setLeadershipImage('antmember', 2)"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782468780685_7446280a783a7fb324bd7d61ac96b226.jpg" alt="Thumb 3"></div><div class="gallery-thumb" onclick="setLeadershipImage('antmember', 3)"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6784612979165_c40390f3c6d7f4c5ece018815cae927b.jpg" alt="Thumb 4"></div></div><div class="leadership-modal-description"><p>Competed in the school music contest, earning 1st prize, and led the Physics stream as Head,
+coordinating academic events and fostering a collaborative learning environment</p><p>Additionally, I organized study groups and peer tutoring sessions, promoting a culture of
+academic excellence and mutual support among students.</p></div></div></div></div><div class="leadership-modal" id="leadershipModalCleanup"><div class="leadership-modal-content"><div class="leadership-modal-header"><button class="leadership-modal-close" onclick="closeLeadershipModal('cleanup')">×</button><h3>District-Level Post-Storm Tree Cleanup</h3><div class="leadership-modal-year">2024</div></div><div class="leadership-modal-body"><div class="leadership-gallery-main" id="galleryCleanup"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782406257416_8921850b74f684f82112f8dfa433b106.jpg" alt="Cleanup 1" class="active"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782467885339_81eadb5b2552372187ec9c0f82f4991d.jpg" alt="Cleanup 2"><img src="https://eduportfolio.github.io/NhatMinh/c%E1%BB%99ng%20%C4%91%E1%BB%93ng%20ki%E1%BA%BFn1.jpg" alt="Team Work"><button class="gallery-nav-btn prev" onclick="changeLeadershipImage('cleanup', -1)">‹</button><button class="gallery-nav-btn next" onclick="changeLeadershipImage('cleanup', 1)">›</button><div class="image-counter"><span class="current-img">1</span> / <span class="total-img">3</span></div></div><div class="leadership-gallery-thumbs" id="thumbsCleanup"><div class="gallery-thumb active" onclick="setLeadershipImage('cleanup', 0)"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782406257416_8921850b74f684f82112f8dfa433b106.jpg" alt="Thumb 1"></div><div class="gallery-thumb" onclick="setLeadershipImage('cleanup', 1)"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782467885339_81eadb5b2552372187ec9c0f82f4991d.jpg" alt="Thumb 2"></div><div class="gallery-thumb" onclick="setLeadershipImage('cleanup', 2)"><img src="https://eduportfolio.github.io/NhatMinh/c%E1%BB%99ng%20%C4%91%E1%BB%93ng%20ki%E1%BA%BFn1.jpg" alt="Thumb 3"></div></div><div class="leadership-modal-description"><p>Participated in district-level environmental recovery efforts following severe storms,
+demonstrating commitment to community resilience and environmental stewardship.</p><p>This volunteer work involved clearing fallen trees and debris, helping restore public spaces
+and ensuring community safety in the aftermath of natural disasters.</p></div></div></div></div><div class="leadership-modal" id="leadershipModalExamsupport"><div class="leadership-modal-content"><div class="leadership-modal-header"><button class="leadership-modal-close" onclick="closeLeadershipModal('examsupport')">×</button><h3>Volunteer - Exam Support Program at HSGS</h3><div class="leadership-modal-year">2024-2025</div></div><div class="leadership-modal-body"><div class="leadership-gallery-main" id="galleryExamsupport"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782404837815_07077304448c4fceea6555f7ef3a4068.jpg" alt="Support 1" class="active"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782402929530_1696729680cddd427f3af19e59f5b5ea.jpg" alt="Support 2"><button class="gallery-nav-btn prev" onclick="changeLeadershipImage('examsupport', -1)">‹</button><button class="gallery-nav-btn next" onclick="changeLeadershipImage('examsupport', 1)">›</button><div class="image-counter"><span class="current-img">1</span> / <span class="total-img">2</span></div></div><div class="leadership-gallery-thumbs" id="thumbsExamsupport"><div class="gallery-thumb active" onclick="setLeadershipImage('examsupport', 0)"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782404837815_07077304448c4fceea6555f7ef3a4068.jpg" alt="Thumb 1"></div><div class="gallery-thumb" onclick="setLeadershipImage('examsupport', 1)"><img src="https://eduportfolio.github.io/NhatMinh/SOCIALWORK-20250712T091550Z-1-001/z6782402929530_1696729680cddd427f3af19e59f5b5ea.jpg" alt="Thumb 2"></div></div><div class="leadership-modal-description"><p>Provided comprehensive logistical and emotional support for students during major school
+examinations at HUS High School for Gifted Students.</p><p>Responsibilities included organizing exam materials, coordinating with teachers, and creating
+a supportive environment to help reduce student stress during high-pressure testing periods.
+</p></div></div></div></div><div class="leadership-modal" id="leadershipModalVanho"><div class="leadership-modal-content"><div class="leadership-modal-header"><button class="leadership-modal-close" onclick="closeLeadershipModal('vanho')">×</button><h3>Teaching Volunteer - Văn Hồ Program</h3><div class="leadership-modal-year">2024</div></div><div class="leadership-modal-body"><div class="leadership-gallery-main" id="galleryVanho"><img src="https://eduportfolio.github.io/NhatMinh/z6912931371874_a162eba43a70b2eee47746558ef259a5.jpg" alt="Teaching 1" class="active"><img src="https://eduportfolio.github.io/NhatMinh/z6912931523592_78833e7fc0c375f32f145e55645502b4.jpg" alt="Teaching 2"><button class="gallery-nav-btn prev" onclick="changeLeadershipImage('vanho', -1)">‹</button><button class="gallery-nav-btn next" onclick="changeLeadershipImage('vanho', 1)">›</button><div class="image-counter"><span class="current-img">1</span> / <span class="total-img">2</span></div></div><div class="leadership-gallery-thumbs" id="thumbsVanho"><div class="gallery-thumb active" onclick="setLeadershipImage('vanho', 0)"><img src="https://eduportfolio.github.io/NhatMinh/z6912931371874_a162eba43a70b2eee47746558ef259a5.jpg" alt="Thumb 1"></div><div class="gallery-thumb" onclick="setLeadershipImage('vanho', 1)"><img src="https://eduportfolio.github.io/NhatMinh/z6912931523592_78833e7fc0c375f32f145e55645502b4.jpg" alt="Thumb 2"></div></div><div class="leadership-modal-description"><p>Traveled to rural communities as part of the Văn Hó educational outreach program, delivering
+workshops and educational support to students with limited access to quality education
+resources.</p><p>This experience deepened my understanding of educational inequality and reinforced my
+commitment to using my knowledge and skills to create positive social impact.</p></div></div></div></div><div class="leadership-modal" id="leadershipModalSosvillage"><div class="leadership-modal-content"><div class="leadership-modal-header"><button class="leadership-modal-close" onclick="closeLeadershipModal('sosvillage')">×</button><h3>Volunteer Work at SOS Children's Village</h3><div class="leadership-modal-year">August 2025</div></div><div class="leadership-modal-body"><div class="leadership-gallery-main" id="gallerySosvillage"><img src="https://eduportfolio.github.io/NhatMinh/sos4.jpg" alt="SOS Village 1" class="active"><img src="https://eduportfolio.github.io/NhatMinh/sos1.jpg" alt="SOS Village 2"><img src="https://eduportfolio.github.io/NhatMinh/sos.jpg" alt="SOS Village 3"><img src="https://eduportfolio.github.io/NhatMinh/sos3.jpg" alt="SOS Village 4"><img src="https://eduportfolio.github.io/NhatMinh/sos2.png" alt="SOS Village 5"><button class="gallery-nav-btn prev" onclick="changeLeadershipImage('sosvillage', -1)">‹</button><button class="gallery-nav-btn next" onclick="changeLeadershipImage('sosvillage', 1)">›</button><div class="image-counter"><span class="current-img">1</span> / <span class="total-img">5</span></div></div><div class="leadership-gallery-thumbs" id="thumbsSosvillage"><div class="gallery-thumb active" onclick="setLeadershipImage('sosvillage', 0)"><img src="https://eduportfolio.github.io/NhatMinh/sos4.jpg" alt="Thumb 1"></div><div class="gallery-thumb" onclick="setLeadershipImage('sosvillage', 1)"><img src="https://eduportfolio.github.io/NhatMinh/sos1.jpg" alt="Thumb 2"></div><div class="gallery-thumb" onclick="setLeadershipImage('sosvillage', 2)"><img src="https://eduportfolio.github.io/NhatMinh/sos.jpg" alt="Thumb 3"></div><div class="gallery-thumb" onclick="setLeadershipImage('sosvillage', 3)"><img src="https://eduportfolio.github.io/NhatMinh/sos3.jpg" alt="Thumb 4"></div><div class="gallery-thumb" onclick="setLeadershipImage('sosvillage', 4)"><img src="https://eduportfolio.github.io/NhatMinh/sos2.png" alt="Thumb 5"></div></div><div class="leadership-modal-description"><p>Engaged with children at SOS Children's Village, providing companionship, educational
+support, and organizing recreational activities to bring joy and learning opportunities to
+children in need.</p><p>This volunteer experience taught me the importance of empathy, patience, and the
+transformative power of positive mentorship in children's lives.</p></div></div></div></div><div class="leadership-modal" id="leadershipModalDebating"><div class="leadership-modal-content"><div class="leadership-modal-header"><button class="leadership-modal-close" onclick="closeLeadershipModal('debating')">×</button><h3>Volunteer at Asian Schools Debating Championship</h3><div class="leadership-modal-year">July 2025</div></div><div class="leadership-modal-body"><div class="leadership-gallery-main" id="galleryDebating"><img src="https://eduportfolio.github.io/NhatMinh/ASV.jpg" alt="asv" class="active"><div class="image-counter"><span class="current-img">1</span> / <span class="total-img">1</span></div></div><div class="leadership-gallery-thumbs" id="thumbsSosvillage"><div class="gallery-thumb active" onclick="setLeadershipImage('sosvillage', 0)"><img src="https://eduportfolio.github.io/NhatMinh/ASV.jpg" alt="Thumb 1"></div></div><div class="leadership-modal-description"><p>Supported the organization and smooth execution of the Asian Schools Debating Championship, a
+prestigious regional competition bringing together talented debaters from across Asia.</p><p>Responsibilities included event coordination, participant support, and ensuring seamless
+logistics for this major international academic event.</p></div></div></div></div><div class="leadership-modal" id="leadershipModalBasketball"><div class="leadership-modal-content"><div class="leadership-modal-header"><button class="leadership-modal-close" onclick="closeLeadershipModal('basketball')">×</button><h3>Team Captain - Basketball Tournament</h3><div class="leadership-modal-year">2025</div></div><div class="leadership-modal-body"><div class="leadership-gallery-main" id="galleryBasketball"><img src="https://eduportfolio.github.io/NhatMinh/tcb.jpg" alt="tcb" class="active"><img src="https://eduportfolio.github.io/NhatMinh/tcb1.jpg" alt="tcb1"><img src="https://eduportfolio.github.io/NhatMinh/tcb2.jpg" alt="tcb2"><button class="gallery-nav-btn prev" onclick="changeLeadershipImage('basketball', -1)">‹</button><button class="gallery-nav-btn next" onclick="changeLeadershipImage('basketball', 1)">›</button><div class="image-counter"><span class="current-img">1</span> / <span class="total-img">3</span></div></div><div class="leadership-gallery-thumbs" id="thumbsBasketball"><div class="gallery-thumb active" onclick="setLeadershipImage('basketball', 0)"><img src="https://eduportfolio.github.io/NhatMinh/tcb.jpg" alt="Thumb 1"></div><div class="gallery-thumb" onclick="setLeadershipImage('basketball', 1)"><img src="https://eduportfolio.github.io/NhatMinh/tcb1.jpg" alt="Thumb 2"></div><div class="gallery-thumb" onclick="setLeadershipImage('basketball', 2)"><img src="https://eduportfolio.github.io/NhatMinh/tcb2.jpg" alt="Thumb 3"></div></div><div class="leadership-modal-description"><h4 style="color: #8000ff; margin-bottom: 1rem;">Team Captain &amp; Leadership Role</h4><p>As Team Captain of the class basketball team, I led our team to achieve third place at the
+HUS High School for Gifted Students (Physics Division) Basketball Tournament in 2025.</p><h4 style="color: #8000ff; margin-top: 2rem; margin-bottom: 1rem;">Leadership Responsibilities
+</h4><ul style="list-style: none; padding-left: 0;"><li style="padding: 0.5rem 0; border-left: 3px solid rgba(128, 0, 255, 0.5); padding-left: 1rem; margin-bottom: 0.5rem;">
+Strategic game planning and in-game decision making</li><li style="padding: 0.5rem 0; border-left: 3px solid rgba(128, 0, 255, 0.5); padding-left: 1rem; margin-bottom: 0.5rem;">
+Team coordination and motivation during practice and games</li><li style="padding: 0.5rem 0; border-left: 3px solid rgba(128, 0, 255, 0.5); padding-left: 1rem; margin-bottom: 0.5rem;">
+Fostering team spirit and maintaining positive morale</li><li style="padding: 0.5rem 0; border-left: 3px solid rgba(128, 0, 255, 0.5); padding-left: 1rem; margin-bottom: 0.5rem;">
+Setting training goals and monitoring team progress</li><li style="padding: 0.5rem 0; border-left: 3px solid rgba(128, 0, 255, 0.5); padding-left: 1rem; margin-bottom: 0.5rem;">
+Building collaboration between teammates with different skill levels</li></ul><h4 style="color: #8000ff; margin-top: 2rem; margin-bottom: 1rem;">Impact &amp; Skills Developed
+</h4><p>This leadership experience reinforced the importance of teamwork, perseverance, and
+maintaining composure under pressure-skills that translate directly to academic pursuits and
+future professional endeavors. Leading a diverse team taught me how to leverage individual
+strengths while building collective success.</p></div></div></div></div><!-- Robolads Modal --><div class="leadership-modal" id="leadershipModalRobolads"><div class="leadership-modal-content"><div class="leadership-modal-header"><button class="leadership-modal-close" onclick="closeLeadershipModal('robolads')">×</button><h3>Head of Human Resources - HSGS Robolads</h3><div class="leadership-modal-year">2024–2025</div></div><div class="leadership-modal-body"><!-- Gallery --><div class="leadership-gallery-main" id="galleryRobolads"><img src="https://eduportfolio.github.io/NhatMinh/hsgs.jpg" alt="Robolads 1" class="active"><img src="https://eduportfolio.github.io/NhatMinh/hsgs1.jpg" alt="Robolads 2"><img src="https://eduportfolio.github.io/NhatMinh/hsgs2.jpg" alt="Robolads 3"><button class="gallery-nav-btn prev" onclick="changeLeadershipImage('robolads', -1)">‹</button><button class="gallery-nav-btn next" onclick="changeLeadershipImage('robolads', 1)">›</button><div class="image-counter"><span class="current-img">1</span> / <span class="total-img">3</span></div></div><!-- Thumbnails --><div class="leadership-gallery-thumbs" id="thumbsRobolads"><div class="gallery-thumb active" onclick="setLeadershipImage('robolads', 0)"><img src="https://eduportfolio.github.io/NhatMinh/hsgs.jpg" alt="Thumb 1"></div><div class="gallery-thumb" onclick="setLeadershipImage('robolads', 1)"><img src="https://eduportfolio.github.io/NhatMinh/hsgs1.jpg" alt="Thumb 2"></div><div class="gallery-thumb" onclick="setLeadershipImage('robolads', 2)"><img src="https://eduportfolio.github.io/NhatMinh/hsgs2.jpg" alt="Thumb 3"></div></div><!-- Description --><div class="leadership-modal-description"><h4 style="color: #0066ff; margin-bottom: 1rem;">Leadership Role Overview</h4><p>As Head of Human Resources for <b>HSGS Robolads</b>, I managed recruitment, team
+coordination, and member development for the school's leading robotics club—home to students
+passionate about engineering, robotics, and innovation.</p><h4 style="color: #0066ff; margin-top: 2rem; margin-bottom: 1rem;">Key Responsibilities</h4><ul style="list-style: none; padding-left: 0;"><li style="padding: 0.5rem 0; border-left: 3px solid rgba(0, 102, 255, 0.5); padding-left: 1rem; margin-bottom: 0.5rem;">
+Designed recruitment campaigns to attract talented and motivated members</li><li style="padding: 0.5rem 0; border-left: 3px solid rgba(0, 102, 255, 0.5); padding-left: 1rem; margin-bottom: 0.5rem;">
+Coordinated communication and collaboration across multiple project teams</li><li style="padding: 0.5rem 0; border-left: 3px solid rgba(0, 102, 255, 0.5); padding-left: 1rem; margin-bottom: 0.5rem;">
+Organized training workshops for new members on robotics fundamentals</li><li style="padding: 0.5rem 0; border-left: 3px solid rgba(0, 102, 255, 0.5); padding-left: 1rem; margin-bottom: 0.5rem;">
+Assisted in project planning and inter-team support for competition readiness</li><li style="padding: 0.5rem 0; border-left: 3px solid rgba(0, 102, 255, 0.5); padding-left: 1rem; margin-bottom: 0.5rem;">
+Fostered a collaborative, innovative, and inclusive club culture</li></ul><h4 style="color: #0066ff; margin-top: 2rem; margin-bottom: 1rem;">Impact &amp; Skills Developed
+</h4><p>Through this leadership experience, I strengthened my skills in <b>organizational management,
+interpersonal communication, and leadership strategy</b>. Managing diverse members and
+projects enhanced my ability to resolve conflicts, delegate effectively, and nurture team
+potential — essential for both academic and professional growth.</p></div></div></div></div><!-- Lightbox for full image view --><div class="lightbox" id="lightbox"><button class="lightbox-close" onclick="closeLightbox()">×</button><div class="lightbox-content"><img id="lightboxImg" src="" alt="Full size image"></div></div><script>
+// ============ MODAL FUNCTIONS ============
+function openModal(modalId) {
+document.getElementById('modal' + modalId.charAt(0).toUpperCase() + modalId.slice(1)).classList.add('active');
+document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modalId) {
+document.getElementById('modal' + modalId.charAt(0).toUpperCase() + modalId.slice(1)).classList.remove('active');
+document.body.style.overflow = 'auto';
+}
+
+// ============ AWARD MODAL NAVIGATION ============
+const awardModals = ['ipitex', 'asmo', 'greenvoice', 'hsgsperformance', 'aijam', 'inova'];
+let currentAwardIndex = 0;
+
+function openAwardModal(modalId) {
+currentAwardIndex = awardModals.indexOf(modalId);
+document.getElementById('modal' + modalId.charAt(0).toUpperCase() + modalId.slice(1)).classList.add('active');
+document.body.style.overflow = 'hidden';
+}
+
+function closeAwardModal(modalId) {
+document.getElementById('modal' + modalId.charAt(0).toUpperCase() + modalId.slice(1)).classList.remove('active');
+document.body.style.overflow = 'auto';
+}
+
+function navigateAwardModal(direction) {
+// Close current modal
+const currentModal = awardModals[currentAwardIndex];
+closeAwardModal(currentModal);
+
+// Calculate new index
+currentAwardIndex = (currentAwardIndex + direction + awardModals.length) % awardModals.length;
+
+// Open new modal
+const newModal = awardModals[currentAwardIndex];
+openAwardModal(newModal);
+}
+
+function openLightbox(element) {
+const img = element.querySelector('img');
+if (img) {
+document.getElementById('lightboxImg').src = img.src;
+document.getElementById('lightbox').classList.add('active');
+document.body.style.overflow = 'hidden';
+}
+}
+
+function closeLightbox() {
+document.getElementById('lightbox').classList.remove('active');
+document.body.style.overflow = 'auto';
+}
+
+function closeLightbox() {
+document.getElementById('lightbox').classList.remove('active');
+}
+
+// Close modal when clicking outside
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+overlay.addEventListener('click', function (e) {
+if (e.target === this) {
+this.classList.remove('active');
+document.body.style.overflow = 'auto';
+}
+});
+});
+
+// Close lightbox when clicking outside
+document.getElementById('lightbox').addEventListener('click', function (e) {
+if (e.target === this) {
+closeLightbox();
+}
+});
+
+// ESC key to close modals
+document.addEventListener('keydown', function (e) {
+if (e.key === 'Escape') {
+document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+modal.classList.remove('active');
+});
+closeLightbox();
+document.body.style.overflow = 'auto';
+}
+});
+// ============ MOUSE TRAIL EFFECT ============
+const cursorGlow = document.createElement('div');
+cursorGlow.className = 'cursor-glow';
+document.body.appendChild(cursorGlow);
+
+let mouseX = 0, mouseY = 0;
+let glowX = 0, glowY = 0;
+
+document.addEventListener('mousemove', (e) => {
+mouseX = e.clientX;
+mouseY = e.clientY;
+
+// Create trail particle
+const trail = document.createElement('div');
+trail.className = 'cursor-trail';
+trail.style.left = mouseX - 4 + 'px';
+trail.style.top = mouseY - 4 + 'px';
+document.body.appendChild(trail);
+
+setTimeout(() => trail.remove(), 800);
+});
+
+// Smooth glow follow
+function animateGlow() {
+glowX += (mouseX - glowX) * 0.2;
+glowY += (mouseY - glowY) * 0.2;
+
+cursorGlow.style.left = glowX - 15 + 'px';
+cursorGlow.style.top = glowY - 15 + 'px';
+
+requestAnimationFrame(animateGlow);
+}
+animateGlow();
+
+// ============ HERO PARTICLES ============
+function createHeroParticles() {
+const container = document.getElementById('heroParticles');
+if (!container) return;
+
+setInterval(() => {
+const particle = document.createElement('div');
+particle.className = 'hero-particle';
+
+const size = Math.random() * 4 + 2;
+particle.style.width = size + 'px';
+particle.style.height = size + 'px';
+particle.style.left = Math.random() * 100 + '%';
+particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+particle.style.animationDelay = Math.random() * 2 + 's';
+
+container.appendChild(particle);
+
+setTimeout(() => particle.remove(), 10000);
+}, 300);
+}
+
+// ============ NAVIGATION ACTIVE STATE ============
+window.addEventListener('scroll', function () {
+const nav = document.querySelector('nav');
+if (window.scrollY > 50) {
+nav.classList.add('scrolled');
+} else {
+nav.classList.remove('scrolled');
+}
+
+// Update active navigation
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+let currentSection = '';
+
+sections.forEach(section => {
+const sectionTop = section.offsetTop;
+const sectionHeight = section.clientHeight;
+if (window.scrollY >= sectionTop - 200) {
+currentSection = section.getAttribute('id');
+}
+});
+
+navLinks.forEach(link => {
+link.classList.remove('active');
+if (link.getAttribute('href') === `#${currentSection}`) {
+link.classList.add('active');
+}
+});
+});
+
+// ============ NAVIGATION PARTICLES ============
+function createNavParticles() {
+const nav = document.querySelector('nav');
+const particle = document.createElement('div');
+particle.className = 'nav-particle';
+particle.style.left = Math.random() * 100 + '%';
+particle.style.bottom = '0';
+nav.appendChild(particle);
+
+setTimeout(() => particle.remove(), 4000);
+}
+
+setInterval(createNavParticles, 2000);
+
+// ============ SMOOTH SCROLLING ============
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({
+behavior: 'smooth',
+block: 'start'
+});
+}
+});
+});
+
+// ============ FADE IN ANIMATION ============
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, observerOptions);
+
+document.querySelectorAll('.fade-in').forEach(el => {
+observer.observe(el);
+});
+
+// ============ GEOMETRIC PARTICLES ============
+function createParticle() {
+const particle = document.createElement('div');
+particle.className = 'particle';
+particle.style.left = Math.random() * 100 + 'vw';
+particle.style.animationDelay = Math.random() * 2 + 's';
+particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+document.body.appendChild(particle);
+
+setTimeout(() => {
+particle.remove();
+}, 5000);
+}
+
+setInterval(createParticle, 300);
+
+// ============ LEADERSHIP MODAL FUNCTIONS ============
+function openLeadershipModal(modalId) {
+document.getElementById('leadershipModal' + modalId.charAt(0).toUpperCase() + modalId.slice(1)).classList.add('active');
+document.body.style.overflow = 'hidden';
+}
+
+function closeLeadershipModal(modalId) {
+document.getElementById('leadershipModal' + modalId.charAt(0).toUpperCase() + modalId.slice(1)).classList.remove('active');
+document.body.style.overflow = 'auto';
+}
+
+function changeLeadershipImage(galleryId, direction) {
+const gallery = document.getElementById('gallery' + galleryId.charAt(0).toUpperCase() + galleryId.slice(1));
+const images = gallery.querySelectorAll('img');
+const thumbs = document.getElementById('thumbs' + galleryId.charAt(0).toUpperCase() + galleryId.slice(1)).querySelectorAll('.gallery-thumb');
+
+let currentIndex = 0;
+images.forEach((img, index) => {
+if (img.classList.contains('active')) {
+currentIndex = index;
+}
+});
+
+images[currentIndex].classList.remove('active');
+thumbs[currentIndex].classList.remove('active');
+
+currentIndex = (currentIndex + direction + images.length) % images.length;
+
+images[currentIndex].classList.add('active');
+thumbs[currentIndex].classList.add('active');
+
+const counter = gallery.querySelector('.current-img');
+if (counter) counter.textContent = currentIndex + 1;
+}
+
+function setLeadershipImage(galleryId, index) {
+const gallery = document.getElementById('gallery' + galleryId.charAt(0).toUpperCase() + galleryId.slice(1));
+const images = gallery.querySelectorAll('img');
+const thumbs = document.getElementById('thumbs' + galleryId.charAt(0).toUpperCase() + galleryId.slice(1)).querySelectorAll('.gallery-thumb');
+
+images.forEach(img => img.classList.remove('active'));
+thumbs.forEach(thumb => thumb.classList.remove('active'));
+
+images[index].classList.add('active');
+thumbs[index].classList.add('active');
+
+const counter = gallery.querySelector('.current-img');
+if (counter) counter.textContent = index + 1;
+}
+
+// ============ FORM SUBMISSION ============
+const contactFormEl = document.querySelector('#contact form');
+if (contactFormEl) {
+contactFormEl.addEventListener('submit', function (e) {
+e.preventDefault();
+alert('Thank you for your message! I will get back to you soon.');
+this.reset();
+});
+}
+// ============ RESEARCH MODAL FUNCTIONS ============
+function openResearchModal(modalId) {
+document.getElementById('researchModal' + modalId.charAt(0).toUpperCase() + modalId.slice(1)).classList.add('active');
+document.body.style.overflow = 'hidden';
+}
+
+function closeResearchModal(modalId) {
+document.getElementById('researchModal' + modalId.charAt(0).toUpperCase() + modalId.slice(1)).classList.remove('active');
+document.body.style.overflow = 'auto';
+}
+
+// Close research modals when clicking outside
+document.querySelectorAll('.research-modal').forEach(modal => {
+modal.addEventListener('click', function (e) {
+if (e.target === this) {
+this.classList.remove('active');
+document.body.style.overflow = 'auto';
+}
+});
+});
+
+// Close research modals with ESC key (update existing ESC handler)
+document.addEventListener('keydown', function (e) {
+if (e.key === 'Escape') {
+// Close research modals
+document.querySelectorAll('.research-modal.active').forEach(modal => {
+modal.classList.remove('active');
+});
+
+// Existing close logic...
+document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+modal.classList.remove('active');
+});
+document.querySelectorAll('.leadership-modal.active').forEach(modal => {
+modal.classList.remove('active');
+});
+closeLightbox();
+document.body.style.overflow = 'auto';
+}
+});
+// ============ LAZY LOADING FOR IMAGES ============
+if ('IntersectionObserver' in window) {
+const imageObserver = new IntersectionObserver((entries, observer) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const img = entry.target;
+if (img.dataset.src) {
+img.src = img.dataset.src;
+img.removeAttribute('data-src');
+}
+observer.unobserve(img);
+}
+});
+});
+
+// Observe all images with data-src attribute
+document.querySelectorAll('img[data-src]').forEach(img => {
+imageObserver.observe(img);
+});
+}
+
+// ============ IMAGE ERROR HANDLING ============
+document.addEventListener('DOMContentLoaded', function () {
+const allImages = document.querySelectorAll('img');
+allImages.forEach(img => {
+img.addEventListener('error', function () {
+// Image already has onerror inline, this is backup
+console.log('Image failed to load:', this.src);
+});
+});
+});
+
+// ============ SMOOTH SCROLL FOR RESEARCH SECTION ============
+const researchSection = document.getElementById('research');
+if (researchSection) {
+const researchObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+researchObserver.unobserve(entry.target);
+}
+});
+}, {
+threshold: 0.1,
+rootMargin: '0px 0px -100px 0px'
+});
+
+researchObserver.observe(researchSection);
+}
+// ============ IMAGE LOADING STATE ============
+document.querySelectorAll('.research-item-image img').forEach(img => {
+if (img.complete) {
+img.parentElement.classList.add('loaded');
+} else {
+img.addEventListener('load', function () {
+this.parentElement.classList.add('loaded');
+});
+}
+});
+// ============ LIGHTBOX ZOOM FEATURE ============
+document.addEventListener('click', function (e) {
+const lightboxImg = document.getElementById('lightboxImg');
+if (e.target === lightboxImg) {
+lightboxImg.classList.toggle('zoomed');
+}
+});
+</script><div class="cursor-glow" style="left: -15px; top: -15px;"></div><div class="particle" style="left: 37.1196vw; animation-delay: 1.53956s; animation-duration: 2.32821s;"></div><div class="particle" style="left: 21.166vw; animation-delay: 0.430729s; animation-duration: 3.26503s;"></div><div class="particle" style="left: 84.5148vw; animation-delay: 1.08278s; animation-duration: 2.38906s;"></div><div class="particle" style="left: 93.0019vw; animation-delay: 0.824684s; animation-duration: 4.08452s;"></div><div class="particle" style="left: 63.353vw; animation-delay: 0.404762s; animation-duration: 2.14429s;"></div><div class="particle" style="left: 3.89066vw; animation-delay: 1.9578s; animation-duration: 4.39671s;"></div><div class="particle" style="left: 72.3062vw; animation-delay: 0.18832s; animation-duration: 3.33286s;"></div><div class="particle" style="left: 31.6637vw; animation-delay: 0.187297s; animation-duration: 3.27377s;"></div><div class="particle" style="left: 45.4694vw; animation-delay: 1.22858s; animation-duration: 3.44567s;"></div><div class="particle" style="left: 26.6257vw; animation-delay: 0.551219s; animation-duration: 3.78785s;"></div><div class="particle" style="left: 67.5953vw; animation-delay: 1.6492s; animation-duration: 4.62308s;"></div><div class="particle" style="left: 74.9473vw; animation-delay: 1.74205s; animation-duration: 3.81427s;"></div><div class="particle" style="left: 3.77219vw; animation-delay: 1.59471s; animation-duration: 2.10399s;"></div><div class="particle" style="left: 70.2891vw; animation-delay: 0.199385s; animation-duration: 3.34479s;"></div><div class="particle" style="left: 83.6258vw; animation-delay: 0.808504s; animation-duration: 2.47822s;"></div><div class="particle" style="left: 13.7817vw; animation-delay: 1.93238s; animation-duration: 3.17599s;"></div></body></html>
